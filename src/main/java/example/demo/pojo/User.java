@@ -10,8 +10,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    private String username;
-    private String address;
-    private Integer age;
-    private Integer id;
+    private String username;//用户名
+    private String id;//用户id
+
+
 }
