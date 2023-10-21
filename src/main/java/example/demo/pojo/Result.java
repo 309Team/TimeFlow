@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Result {
     private Boolean code; //Ture表示成功，False表示失败
     private String msg; //返回信息
-    private Object data; //返回对象
+    private Object data; //返回对象列表
 
     /**
      * 成功返回(有数据返回)
