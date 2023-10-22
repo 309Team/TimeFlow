@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class MomentEvent {
 
-	private String id; //事件id
+	private Integer id; //事件id
 	private String name; //事项名称
 	private LocalDateTime deadline; //事项截至时间
 	private List<Integer> inCategory; //所属类别

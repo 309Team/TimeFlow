@@ -13,7 +13,7 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 public class TimeEvent {
-    private String id; //事件id
+    private Integer id; //事件id
     private String name; //事项名称
     private LocalDateTime startTime; //事项开始时间
     private LocalDateTime overTime; //事项结束时间

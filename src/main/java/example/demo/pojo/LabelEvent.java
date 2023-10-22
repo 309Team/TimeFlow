@@ -13,7 +13,7 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 public class LabelEvent {
-	private String id; //事件id
+	private Integer id; //事件id
 	private String name; //事项名称
 	private LocalDate date; //事项附着日期
 	private List<Integer> inCategory; //所属类别
