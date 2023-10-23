@@ -35,12 +35,11 @@ public class JwtUtil {
             ttlMillis = JWT_TTL;
 
         date.setTime(date.getTime() + ttlMillis);
-        String token = JWT.create()
+
+        return JWT.create()
                 .withClaim("userId", id)//payload  //自定义用户名
                 .withExpiresAt(date) //指定令牌过期时间
-                .sign(Algorithm.HMAC256(JWT_KEY));//签名
-
-        return token;
+                .sign(Algorithm.HMAC256(JWT_KEY));
     }
 
     /**
@@ -64,7 +63,7 @@ public class JwtUtil {
 
     /**
      * 解码JWT数据
-     * @param token
+     * @param token 待解码的数据
      * @return DecodedJWT解码包
      */
     public static DecodedJWT getToken(String token) {
