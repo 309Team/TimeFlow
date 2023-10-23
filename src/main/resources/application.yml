@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    username: #???
+    url: #???url
+    password:  #??
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:example/demo/mapper/*Mapper.xml
+  type-aliases-package: example.demo

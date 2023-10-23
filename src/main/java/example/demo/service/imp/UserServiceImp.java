@@ -1,13 +1,14 @@
 package example.demo.service.imp;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @Author:你的名字
- * @Description:
- * @params:$
- * @return: $
- * @Date: 2023/10/20/9:04
- */
-public class UserServiceImp {
+
+import example.demo.mapper.UserMapper;
+import example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImp implements UserService {
+    @Autowired
+    UserMapper userMapper;
+
 }
