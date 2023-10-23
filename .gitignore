@@ -32,4 +32,5 @@ build/
 ### VS Code ###
 .vscode/
 
-application.yml
+### 本地的配置文件 ###
+src/main/resources/application.yml
