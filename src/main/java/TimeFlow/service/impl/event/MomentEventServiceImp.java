@@ -16,14 +16,19 @@ public class MomentEventServiceImp implements MomentEventService {
 	private MomentEventMapper MEMapper;
 
 	@Override
-	public List<MomentEvent> list(Integer id, String date) {
-		return MEMapper.list(id, date);
+	public List<MomentEvent> list(Integer uid, String date) {
+		return MEMapper.list(uid, date);
 	}
 
 	@Override
-	public void add(MomentEvent newME) {
-		MEMapper.add(newME);
+	public void add(Integer uid,MomentEvent newME) {
+		MEMapper.add(uid ,newME);
 		return;
+	}
+
+	@Override
+	public void delete(Integer uid, Integer id) {
+		MEMapper.delete(uid, id);
 	}
 
 

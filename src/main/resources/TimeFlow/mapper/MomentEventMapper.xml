@@ -10,8 +10,17 @@
     </select>
 
     <insert id="add">
-        INSERT INTO 0001momentevent(id,name,deadline,setInViewPage,text,isCompleted)
-        values (#{id},#{name},#{deadline},#{setInViewPage},#{text},#{isCompleted})
+        INSERT INTO 0001momentevent
+            (id,name,deadline,
+             setInViewPage,text,isCompleted)
+        values
+            (#{newME.id},#{newME.name},#{newME.deadline},
+             #{newME.setInViewPage},#{newME.text},#{newME.isCompleted})
     </insert>
+
+    <delete id="delete">
+        DELETE FROM 0001momentevent
+        WHERE id = #{id}
+    </delete>
 
 </mapper>
