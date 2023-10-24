@@ -48,7 +48,7 @@ public class Result {
      * @param msg  错误信息
      * @return Result对象
      */
-    static public Result err(Integer code, String msg) {
+	static public Result error(Integer code, String msg) {
         return new Result(code, msg, null);
     }
 
