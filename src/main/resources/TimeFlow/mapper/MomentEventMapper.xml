@@ -2,15 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="TimeFlow.mapper.event.MomentEventMapper" >
 
-    <select id="list" resultType="TimeFlow.pojo.MomentEvent">
-        SELECT * FROM 0001momentevent WHERE
+    <select id="list" resultType="TimeFlow.pojo.MomentEvent" parameterType="java.lang.String">
+--         存在SQL注入的风险https://blog.csdn.net/p312011150/article/details/88064387
+        SELECT * FROM ${tableName} WHERE
             EXTRACT(YEAR FROM deadline) = EXTRACT(YEAR FROM #{date}) and
             EXTRACT(MONTH FROM deadline) = EXTRACT(MONTH FROM #{date}) and
-            EXTRACT(DAY FROM deadline) = EXTRACT(DAY FROM #{date})
+            EXTRACT(DAY FROM deadline) = EXTRACT(DAY FROM #{date} )
     </select>
 
     <insert id="add">
-        INSERT INTO 0001momentevent
+        INSERT INTO ${tableName}
             (id,name,deadline,
              setInViewPage,text,isCompleted)
         values
@@ -19,8 +20,9 @@
     </insert>
 
     <delete id="delete">
-        DELETE FROM 0001momentevent
+        DELETE FROM ${tableName}
         WHERE id = #{id}
     </delete>
+
 
 </mapper>

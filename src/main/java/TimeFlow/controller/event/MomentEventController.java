@@ -6,6 +6,7 @@ import TimeFlow.mapper.event.MomentEventMapper;
 import TimeFlow.pojo.MomentEvent;
 import TimeFlow.pojo.Result;
 import TimeFlow.service.interf.event.MomentEventService;
+import TimeFlow.util.TableNameUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,19 +33,19 @@ public class MomentEventController {
 	public Result list(@GetUserId Integer uid, @RequestBody HashMap<String, String> D ) {
 //		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //		LocalDate date = LocalDate.parse(D.get("dateSTR"), fmt);
-		List<MomentEvent> MEList = MEService.list(uid, D.get("dateSTR"));
+		List<MomentEvent> MEList = MEService.list(TableNameUtil.getMEName(uid), D.get("dateSTR"));
 		return Result.success(MEList);
 	}
 
 	@PostMapping()
 	public Result add(@GetUserId Integer uid, @RequestBody MomentEvent newME){
-		MEService.add(uid ,newME);
+		MEService.add(TableNameUtil.getMEName(uid) ,newME);
 		return Result.success();
 	}
 
 	@DeleteMapping
 	public Result delete(@GetUserId Integer uid, @RequestBody HashMap<String,Integer> D){
-		MEService.delete(uid, D.get("id"));
+		MEService.delete(TableNameUtil.getMEName(uid), D.get("id"));
 		return Result.success();
 	}
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -16,19 +17,19 @@ public class MomentEventServiceImp implements MomentEventService {
 	private MomentEventMapper MEMapper;
 
 	@Override
-	public List<MomentEvent> list(Integer uid, String date) {
-		return MEMapper.list(uid, date);
+	public List<MomentEvent> list(String tableName, String date) {
+		return MEMapper.list(tableName, date);
 	}
 
 	@Override
-	public void add(Integer uid,MomentEvent newME) {
-		MEMapper.add(uid ,newME);
+	public void add(String tableName,MomentEvent newME) {
+		MEMapper.add(tableName ,newME);
 		return;
 	}
 
 	@Override
-	public void delete(Integer uid, Integer id) {
-		MEMapper.delete(uid, id);
+	public void delete(String tableName, Integer id) {
+		MEMapper.delete(tableName, id);
 	}
 
 
