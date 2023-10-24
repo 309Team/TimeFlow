@@ -7,6 +7,10 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class UserController {
 
-    @Autowired
+    final
     UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 }

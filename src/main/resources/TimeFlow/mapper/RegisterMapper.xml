@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="TimeFlow.mapper.user.RegisterMapper">
+    <insert id="userRegister">
+        INSERT INTO `timeflow`.`user` (`name`, `password`)
+        VALUES (#{name}, #{password})
+    </insert>
+    <update id="createTETable">
+        create table IF NOT EXISTS ${tableName}
+        (
+            id            int unsigned primary key auto_increment comment '事项ID',
+            name          varchar(10) not null unique comment '事项名',
+            startTime     datetime    not null comment '开始时间',
+            overTime      datetime    not null comment '结束时间',
+            setInViewPage tinyint     not null comment '是否纳入日视图统计（无痕事件）',
+            text          varchar(400) unique comment '文本内容（事项注释）',
+            isCompleted   tinyint     not null comment '事件是否完成'
+        ) comment '时段事项表';
+    </update>
+
+    <update id="createMETable">
+        create table IF NOT EXISTS ${tableName}
+        (
+            id            int unsigned primary key auto_increment comment '事项ID',
+            name          varchar(10) not null unique comment '事项名',
+            deadline      datetime    not null comment '截截止时间',
+            setInViewPage tinyint     not null comment '是否纳入日视图统计（无痕事件）',
+            text          varchar(400) unique comment '文本内容（事项注释）',
+            isCompleted   tinyint     not null comment '事件是否完成'
+        ) comment '时刻事项表';
+    </update>
+
+    <update id="createLETable">
+        create table IF NOT EXISTS ${tableName}
+        (
+            id            int unsigned primary key auto_increment comment '事项ID',
+            name          varchar(10) not null unique comment '事项名',
+            attachdate    date        not null comment '附着时间',
+            setInViewPage tinyint     not null comment '是否纳入日视图统计（无痕事件）',
+            text          varchar(400) unique comment '文本内容（事项注释）',
+            isCompleted   tinyint     not null comment '事件是否完成'
+        ) comment '标签事项表';
+    </update>
+    <select id="findUser" resultType="TimeFlow.pojo.User">
+        SELECT *
+        FROM user
+        WHERE name = #{name}
+    </select>
+</mapper>
