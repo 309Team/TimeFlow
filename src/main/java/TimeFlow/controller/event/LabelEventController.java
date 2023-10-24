@@ -1,4 +1,4 @@
-package TimeFlow.controller;
+package TimeFlow.controller.event;
 
 
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package TimeFlow.mapper;
+package TimeFlow.mapper.user;
 
 import org.apache.ibatis.annotations.Mapper;
 

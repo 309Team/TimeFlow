@@ -1,16 +1,15 @@
-package TimeFlow.service.imp;
+package TimeFlow.service.impl.user;
 
 
 import TimeFlow.pojo.User;
-import TimeFlow.mapper.LoginMapper;
-import TimeFlow.service.LoginService;
+import TimeFlow.mapper.user.LoginMapper;
+import TimeFlow.service.interf.user.LoginService;
 import org.springframework.stereotype.Service;
 
 @Service
 public class LoginServiceImp implements LoginService {
 
     final LoginMapper loginMapper;
-
     public LoginServiceImp(LoginMapper loginMapper) {
         this.loginMapper = loginMapper;
     }

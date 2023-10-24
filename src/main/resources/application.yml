@@ -6,5 +6,5 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
-  mapper-locations: classpath:example/demo/mapper/*Mapper.xml
-  type-aliases-package: example.demo
+  mapper-locations: classpath:TimeFlow/mapper/*Mapper.xml
+  type-aliases-package: classpath:TimeFlow

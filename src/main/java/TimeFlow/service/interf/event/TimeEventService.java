@@ -1,4 +1,4 @@
-package TimeFlow.service;
+package TimeFlow.service.interf.event;
 
 
 public interface TimeEventService {

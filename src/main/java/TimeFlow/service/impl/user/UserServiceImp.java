@@ -1,8 +1,8 @@
-package TimeFlow.service.imp;
+package TimeFlow.service.impl.user;
 
 
-import TimeFlow.mapper.UserMapper;
-import TimeFlow.service.UserService;
+import TimeFlow.mapper.user.UserMapper;
+import TimeFlow.service.interf.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
