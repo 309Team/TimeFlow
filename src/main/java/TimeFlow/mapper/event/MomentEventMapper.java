@@ -10,4 +10,8 @@ import java.util.List;
 public interface MomentEventMapper {
 //	@Select("select * from `0001momentevent`")
 	List<MomentEvent> list(Integer id, String date);
+
+	void add(MomentEvent newME);
+
+
 }

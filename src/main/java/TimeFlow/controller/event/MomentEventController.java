@@ -1,8 +1,8 @@
 package TimeFlow.controller.event;
 
 
-
 import TimeFlow.config.GetUserId;
+import TimeFlow.mapper.event.MomentEventMapper;
 import TimeFlow.pojo.MomentEvent;
 import TimeFlow.pojo.Result;
 import TimeFlow.service.interf.event.MomentEventService;
@@ -19,14 +19,15 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@RequestMapping("/me")
 public class MomentEventController {
 
-//	@Qualifier("momentEventService")
+	//	@Qualifier("momentEventService")
 	@Autowired
 	private MomentEventService MEService;
 
-	@PostMapping("/me")
-	public Result list(@RequestBody HashMap<String,String> D, @GetUserId Integer id) {
+	@GetMapping()
+	public Result list(@RequestBody HashMap<String, String> D, @GetUserId Integer id) {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //		LocalDate date = LocalDate.parse(D.get("dateSTR"), fmt);
 //		log.info(date.toString());
@@ -35,6 +36,11 @@ public class MomentEventController {
 		return Result.success(MEList);
 	}
 
+	@PostMapping()
+	public Result add(@RequestBody MomentEvent newME){
+		MEService.add(newME);
+		return Result.success();
+	}
 
 
 }

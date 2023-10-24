@@ -14,7 +14,6 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 public class MomentEvent {
-
 	private Integer id; //事件id
 	private String name; //事项名称
 	private LocalDateTime deadline; //事项截至时间

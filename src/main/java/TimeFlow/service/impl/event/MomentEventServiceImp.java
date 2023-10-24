@@ -20,5 +20,11 @@ public class MomentEventServiceImp implements MomentEventService {
 		return MEMapper.list(id, date);
 	}
 
+	@Override
+	public void add(MomentEvent newME) {
+		MEMapper.add(newME);
+		return;
+	}
+
 
 }
