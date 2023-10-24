@@ -22,15 +22,19 @@ public class LoginController {
     @PostMapping("/login")
     public Result login(@RequestBody User user) {
 
+        // 查询前端账号密码是否正确
         User loginUser = loginService.login(user);
 
+        // 密码正确
         if (loginUser != null) {
+            // 生成token
             String token = JwtUtil.createJWT(loginUser.getId().toString(), null);
 
             HashMap<String, String> map = new HashMap<>();
             map.put("token", token);
             return Result.success(map);
         } else {
+            // 密码错误
             return Result.error("用户名或密码错误！");
         }
     }
