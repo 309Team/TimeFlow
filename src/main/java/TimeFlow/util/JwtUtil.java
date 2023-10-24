@@ -28,7 +28,7 @@ public class JwtUtil {
      * @param ttlMillis token有效时长
      * @return token串
      */
-    public static String createJWT(String id, Long ttlMillis) {
+    public static String createJWT(String uid, Long ttlMillis) {
 
         Date date = new Date();
         if (ttlMillis == null)
@@ -37,7 +37,7 @@ public class JwtUtil {
         date.setTime(date.getTime() + ttlMillis);
 
         return JWT.create()
-                .withClaim("userId", id)//payload  //自定义用户名
+                .withClaim("userId", uid)//payload  //自定义用户名
                 .withExpiresAt(date) //指定令牌过期时间
                 .sign(Algorithm.HMAC256(JWT_KEY));
     }

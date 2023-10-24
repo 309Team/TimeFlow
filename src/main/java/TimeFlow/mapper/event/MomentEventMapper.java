@@ -9,9 +9,9 @@ import java.util.List;
 @Mapper
 public interface MomentEventMapper {
 //	@Select("select * from `0001momentevent`")
-	List<MomentEvent> list(Integer id, String date);
+	List<MomentEvent> list(Integer uid, String date);
 
-	void add(MomentEvent newME);
+	void add(Integer uid,MomentEvent newME);
 
-
+	void delete(Integer uid, Integer id);
 }

@@ -28,7 +28,7 @@ public class LoginController {
         // 密码正确
         if (loginUser != null) {
             // 生成token
-            String token = JwtUtil.createJWT(loginUser.getId().toString(), null);
+            String token = JwtUtil.createJWT(loginUser.getUid().toString(), null);
 
             HashMap<String, String> map = new HashMap<>();
             map.put("token", token);
@@ -40,7 +40,7 @@ public class LoginController {
     }
 
     @RequestMapping("/hello")
-    public Result hello(@GetUserId Integer id) {
-        return Result.success(id);
+    public Result hello(@GetUserId Integer uid) {
+        return Result.success(uid);
     }
 }

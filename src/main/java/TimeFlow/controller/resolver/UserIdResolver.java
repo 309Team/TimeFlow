@@ -26,13 +26,13 @@ public class UserIdResolver implements HandlerMethodArgumentResolver {
         // 获取token
         String token = webRequest.getHeader("token");
 
-        // 在有token的情况下解析id
+        // 在有token的情况下解析uid
         if (StringUtils.hasText(token)) {
 
             DecodedJWT decoded = JwtUtil.getToken(token);
-            Integer id = Integer.valueOf(decoded.getClaim("userId").asString());
+            Integer uid = Integer.valueOf(decoded.getClaim("userId").asString());
 
-            return id;
+            return uid;
         }
 
         return null; // 没有token，为空
