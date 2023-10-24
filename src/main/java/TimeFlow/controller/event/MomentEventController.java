@@ -24,15 +24,14 @@ import java.util.Map;
 @RequestMapping("/me")
 public class MomentEventController {
 
-	//	@Qualifier("momentEventService")
 	@Autowired
 	private MomentEventService MEService;
 
+
 	@GetMapping()
 	public Result list(@GetUserId Integer uid, @RequestBody HashMap<String, String> D ) {
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //		LocalDate date = LocalDate.parse(D.get("dateSTR"), fmt);
-//		log.info(date.toString());
 		List<MomentEvent> MEList = MEService.list(uid, D.get("dateSTR"));
 		return Result.success(MEList);
 	}
