@@ -1,5 +1,6 @@
 package TimeFlow.controller;
 
+import TimeFlow.config.GetUserId;
 import TimeFlow.pojo.Result;
 import TimeFlow.pojo.User;
 import TimeFlow.service.LoginService;
@@ -35,7 +36,7 @@ public class LoginController {
     }
 
     @RequestMapping("/hello")
-    public Result hello() {
-        return Result.success();
+    public Result hello(@GetUserId Integer id) {
+        return Result.success(id);
     }
 }

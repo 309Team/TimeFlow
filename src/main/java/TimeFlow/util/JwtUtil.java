@@ -66,7 +66,14 @@ public class JwtUtil {
      * @param token 待解码的数据
      * @return DecodedJWT解码包
      */
-    public static DecodedJWT getToken(String token) {
-        return JWT.require(Algorithm.HMAC256(JWT_KEY)).build().verify(token);
+    public static DecodedJWT getToken(String token) throws LoginException {
+        DecodedJWT decodedJWT = null;
+        try {
+            decodedJWT = JWT.require(Algorithm.HMAC256(JWT_KEY)).build().verify(token);
+        } catch (Exception e) {
+            throw new LoginException("token解析失败！");
+        } finally {
+            return decodedJWT;
+        }
     }
 }
