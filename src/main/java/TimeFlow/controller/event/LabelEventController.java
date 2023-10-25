@@ -2,13 +2,11 @@ package TimeFlow.controller.event;
 
 
 import TimeFlow.config.GetUserId;
-import TimeFlow.pojo.LabelEvent;
 import TimeFlow.pojo.Result;
 import TimeFlow.service.interf.event.LabelEventService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 public class LabelEventController {

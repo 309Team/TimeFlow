@@ -26,10 +26,7 @@ public class RegisterController {
         if (code == 1)
             return Result.error(1, "用户名已被注册");
 
-        // 添加成功，建表
-        User newUser = registerService.findUser(user);
-        registerService.createTable(newUser);
-
+        // 添加成功
         return Result.success();
     }
 

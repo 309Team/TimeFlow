@@ -7,5 +7,4 @@ public interface RegisterService {
 
     User findUser(User user);
 
-    void createTable(User user);
 }

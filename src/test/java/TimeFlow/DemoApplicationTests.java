@@ -16,10 +16,9 @@ class DemoApplicationTests {
     @Autowired
     RegisterService registerService;
 
-    void contextLoads() {
+    void registerTest() {
         User user = new User();
         user.setUid(100);
-        registerService.createTable(user);
     }
 
 }
