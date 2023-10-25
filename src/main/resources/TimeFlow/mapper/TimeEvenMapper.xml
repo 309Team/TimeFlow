@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="TimeFlow.mapper.event.TimeEvenMapper">
+    <select id="list" resultType="TimeFlow.pojo.TimeEvent">
+        SELECT * FROM ${tableName} WHERE
+            EXTRACT(YEAR FROM startTime) = EXTRACT(YEAR FROM #{date}) and
+            EXTRACT(MONTH FROM startTime) = EXTRACT(MONTH FROM #{date}) and
+            EXTRACT(DAY FROM startTime) = EXTRACT(DAY FROM #{date})
+    </select>
+
+    <insert id="add">
+        INSERT INTO ${tableName}
+        (id,name,startTime, overTime,
+         setInViewPage,text,isCompleted)
+        values
+            (#{newTE.id},#{newTE.name},#{newTE.startTime},#{newTE.overTime},
+             #{newTE.setInViewPage},#{newTE.text},#{newTE.isCompleted})
+    </insert>
+    <delete id="delete">
+        DELETE FROM ${tableName}
+        WHERE id = #{id}
+    </delete>
+
 </mapper>
