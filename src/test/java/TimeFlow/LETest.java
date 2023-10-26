@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -35,7 +33,7 @@ public class LETest {
         List<LabelEvent> byDate = labelEventMapper.findByDate(localDate, TableNameUtil.getLEName(5));
     }
 
-    @Test
+    //@Test
     public void insertLETest() {
         LabelEvent labelEvent = new LabelEvent();
         labelEvent.setAttachDate(LocalDate.now());
@@ -45,4 +43,11 @@ public class LETest {
 
         labelEventService.labelEventInsert(5, labelEvent);
     }
+
+    //    @Test
+    public void deleteTest() {
+        long l = labelEventService.labelEventDelete(5, 2);
+        System.out.println(l);
+    }
+
 }

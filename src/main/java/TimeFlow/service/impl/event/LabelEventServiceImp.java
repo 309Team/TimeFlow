@@ -32,7 +32,12 @@ public class LabelEventServiceImp implements LabelEventService {
     }
 
     @Override
-    public void labelEventInsert(Integer uid, LabelEvent labelEvent) {
-        labelEventMapper.insert(TableNameUtil.getLEName(uid), labelEvent);
+    public long labelEventInsert(Integer uid, LabelEvent labelEvent) {
+        return labelEventMapper.insert(TableNameUtil.getLEName(uid), labelEvent);
+    }
+
+    @Override
+    public long labelEventDelete(Integer uid, Integer eid) {
+        return labelEventMapper.delete(TableNameUtil.getLEName(uid), eid);
     }
 }

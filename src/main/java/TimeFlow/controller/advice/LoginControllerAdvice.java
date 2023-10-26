@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * 验证登录token处理类
+ * 验证登录token错误处理类
  */
 @ControllerAdvice
 public class LoginControllerAdvice {

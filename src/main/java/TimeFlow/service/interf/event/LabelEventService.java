@@ -12,5 +12,7 @@ public interface LabelEventService {
 
     List<LabelEvent> findDate(Integer uid, LocalDate date);
 
-    void labelEventInsert(Integer uid, LabelEvent labelEvent);
+    long labelEventInsert(Integer uid, LabelEvent labelEvent);
+
+    long labelEventDelete(Integer uid, Integer eid);
 }

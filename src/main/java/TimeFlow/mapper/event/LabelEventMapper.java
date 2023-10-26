@@ -14,5 +14,7 @@ public interface LabelEventMapper {
 
     List<LabelEvent> findByDate(@Param("date") LocalDate date, @Param("tableName") String tableName);
 
-    void insert(@Param("tableName") String tableName, @Param("event") LabelEvent labelEvent);
+    long insert(@Param("tableName") String tableName, @Param("event") LabelEvent labelEvent);
+
+    long delete(@Param("tableName") String tableName, @Param("eid") Integer eid);
 }

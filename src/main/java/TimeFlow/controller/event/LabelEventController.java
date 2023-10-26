@@ -5,10 +5,7 @@ import TimeFlow.config.GetUserId;
 import TimeFlow.pojo.LabelEvent;
 import TimeFlow.pojo.Result;
 import TimeFlow.service.interf.event.LabelEventService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -46,5 +43,13 @@ public class LabelEventController {
     public Result addLabelEvent(@GetUserId Integer uid, @RequestBody LabelEvent labelEvent) {
         labelEventService.labelEventInsert(uid, labelEvent);
         return Result.success();
+    }
+
+    @DeleteMapping("/deleteLE/{eid}")
+    public Result deleteLabelEvent(@GetUserId Integer uid, @PathVariable Integer eid) {
+        if (labelEventService.labelEventDelete(uid, eid) != 0)
+            return Result.success();
+        else
+            return Result.error("表中无数据");
     }
 }
