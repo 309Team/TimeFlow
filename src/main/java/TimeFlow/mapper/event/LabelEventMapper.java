@@ -4,9 +4,15 @@ import TimeFlow.pojo.LabelEvent;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper
 public interface LabelEventMapper {
     List<LabelEvent> findAll(@Param("tableName") String tableName);
+
+    List<LabelEvent> findByDate(@Param("date") LocalDate date, @Param("tableName") String tableName);
+
+    void insert(@Param("tableName") String tableName, @Param("event") LabelEvent labelEvent);
 }
