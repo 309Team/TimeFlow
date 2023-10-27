@@ -15,4 +15,6 @@ public interface LabelEventService {
     long labelEventInsert(Integer uid, LabelEvent labelEvent);
 
     long labelEventDelete(Integer uid, Integer eid);
+
+    long labelEventUpdate(Integer uid, LabelEvent labelEvent);
 }

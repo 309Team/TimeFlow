@@ -52,4 +52,10 @@ public class LabelEventController {
         else
             return Result.error("表中无数据");
     }
+
+    @PostMapping("/updateLE")
+    public Result updateLabelEvent(@GetUserId Integer uid, @RequestBody LabelEvent labelEvent) {
+        return labelEventService.labelEventUpdate(uid, labelEvent) == 0 ?
+                Result.error("修改失败") : Result.success();
+    }
 }

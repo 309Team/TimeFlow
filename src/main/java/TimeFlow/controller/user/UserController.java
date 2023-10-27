@@ -4,8 +4,6 @@ import TimeFlow.config.GetUserId;
 import TimeFlow.pojo.Result;
 import TimeFlow.pojo.User;
 import TimeFlow.service.interf.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,9 +43,11 @@ public class UserController {
     }
 
     /**
-     * @param uid
-     * @param user
-     * @return
+     * 用户信息修改方法
+     *
+     * @param uid  解析参数uid，从token中取得
+     * @param user 要更新的用户信息实体类
+     * @return 更新结果
      */
     @PostMapping("/update")
     public Result userUpdate(@GetUserId Integer uid, @RequestBody User user) {

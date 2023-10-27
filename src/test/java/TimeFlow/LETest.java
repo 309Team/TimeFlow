@@ -47,7 +47,19 @@ public class LETest {
     //    @Test
     public void deleteTest() {
         long l = labelEventService.labelEventDelete(5, 2);
-        System.out.println(l);
+        //System.out.println(l);
     }
 
+    //    @Test
+    public void updateTest() {
+
+        LabelEvent labelEvent = new LabelEvent();
+        labelEvent.setAttachDate(LocalDate.now());
+        labelEvent.setName("帮哈哈找npy");
+        labelEvent.setCompleted(false);
+        labelEvent.setSetInViewPage(true);
+
+        long l = labelEventService.labelEventUpdate(5, labelEvent);
+        System.out.println(l);
+    }
 }

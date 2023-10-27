@@ -40,4 +40,9 @@ public class LabelEventServiceImp implements LabelEventService {
     public long labelEventDelete(Integer uid, Integer eid) {
         return labelEventMapper.delete(TableNameUtil.getLEName(uid), eid);
     }
+
+    @Override
+    public long labelEventUpdate(Integer uid, LabelEvent labelEvent) {
+        return labelEventMapper.update(TableNameUtil.getLEName(uid), labelEvent);
+    }
 }

@@ -7,6 +7,27 @@
         VALUES (#{event.name}, #{event.attachDate}, #{event.setInViewPage},
                 #{event.isCompleted}, #{event.text})
     </insert>
+    <update id="update">
+        UPDATE ${tableName}
+        <set>
+            <if test="event.name != null">
+                name = #{event.name},
+            </if>
+            <if test="event.attachDate != null">
+                attachdate = #{event.attachDate},
+            </if>
+            <if test="event.setInViewPage != null">
+                setInViewPage = #{event.setInViewPage},
+            </if>
+            <if test="event.text != null">
+                text = #{event.text},
+            </if>
+            <if test="event.isCompleted != null">
+                isCompleted = #{event.isCompleted}
+            </if>
+        </set>
+        WHERE id = #{event.id}
+    </update>
     <delete id="delete">
         DELETE
         FROM ${tableName}
