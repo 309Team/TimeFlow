@@ -1,6 +1,5 @@
 package TimeFlow.mapper.event;
 
-import TimeFlow.pojo.MomentEvent;
 import TimeFlow.pojo.TimeEvent;
 import org.apache.ibatis.annotations.Mapper;
 

@@ -14,4 +14,9 @@ public class TableNameUtil {
 	public static String  getTEName(Integer uid) {
 		return uid.toString() + "timeevent";
 	}
+
+	public static String  getCLName(Integer uid) {
+		return uid.toString() + "classification";
+	}
+
 }
