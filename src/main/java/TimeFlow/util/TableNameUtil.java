@@ -4,19 +4,19 @@ import java.util.HashMap;
 
 public class TableNameUtil {
 	public static String getLEName(Integer uid) {
-		return uid.toString() + "labelevent";
+		return uid.toString() + "_labelevent";
 	}
 
 	public static String getMEName(Integer uid) {
-		return uid.toString() + "momentevent";
+		return uid.toString() + "_momentevent";
 	}
 
 	public static String  getTEName(Integer uid) {
-		return uid.toString() + "timeevent";
+		return uid.toString() + "_timeevent";
 	}
 
 	public static String  getCLName(Integer uid) {
-		return uid.toString() + "classification";
+		return uid.toString() + "_classification";
 	}
 
 }
