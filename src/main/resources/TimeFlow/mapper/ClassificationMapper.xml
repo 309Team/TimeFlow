@@ -4,8 +4,15 @@
     <select id="list" resultType="TimeFlow.pojo.Classification">
         SELECT * FROM ${tableName}
     </select>
-
-
+    <insert id="add">
+        INSERT INTO ${tableName} (id,name,text)
+        values
+            (#{newCL.id},#{newCL.name},#{newCL.text})
+    </insert>
+    <delete id="delete">
+        DELETE FROM ${tableName}
+        WHERE id = #{id}
+    </delete>
 
 
 </mapper>

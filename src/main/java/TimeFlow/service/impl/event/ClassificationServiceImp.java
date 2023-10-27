@@ -19,4 +19,14 @@ public class ClassificationServiceImp implements ClassificationService {
 	public List<Classification> list(String tableName) {
 		return CMapper.list(tableName);
 	}
+
+	@Override
+	public void add(String tableName, Classification newCL) {
+		CMapper.add(tableName, newCL);
+	}
+
+	@Override
+	public void delete(String tableName, Integer id) {
+		CMapper.delete(tableName, id);
+	}
 }
