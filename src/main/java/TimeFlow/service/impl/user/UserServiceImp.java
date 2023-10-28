@@ -1,10 +1,12 @@
 package TimeFlow.service.impl.user;
 
 
+import TimeFlow.mapper.classification.ClassCategoryMapper;
 import TimeFlow.mapper.user.UserMapper;
 import TimeFlow.pojo.User;
 import TimeFlow.service.interf.user.UserService;
 import TimeFlow.util.TableNameUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -14,9 +16,11 @@ import java.beans.Transient;
 @Service
 public class UserServiceImp implements UserService {
     private final UserMapper userMapper;
+    private final ClassCategoryMapper classCategoryMapper;
 
-    public UserServiceImp(UserMapper userMapper) {
+    public UserServiceImp(UserMapper userMapper, ClassCategoryMapper classCategoryMapper) {
         this.userMapper = userMapper;
+        this.classCategoryMapper = classCategoryMapper;
     }
 
     @Override
@@ -34,7 +38,7 @@ public class UserServiceImp implements UserService {
         userMapper.dropTable(TableNameUtil.getLEName(uid));
         userMapper.dropTable(TableNameUtil.getMEName(uid));
         userMapper.dropTable(TableNameUtil.getTEName(uid));
-
+        classCategoryMapper.dropTable(TableNameUtil.getTECLName(uid));
         // 从用户表中删除
         userMapper.userDelete(uid);
 

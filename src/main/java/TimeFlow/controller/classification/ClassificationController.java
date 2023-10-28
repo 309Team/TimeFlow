@@ -24,21 +24,20 @@ public class ClassificationController {
 
     @GetMapping()
     public Result list(@GetUserId Integer uid) {
-        return Result.success(CService.list(TableNameUtil.getCLName(uid)));
+        return Result.success(CService.list(TableNameUtil.getTECLName(uid)));
     }
 
     @PostMapping()
     public Result add(@GetUserId Integer uid, @RequestBody TEClassification newCL) {
-        CService.add(TableNameUtil.getCLName(uid), newCL);
+        CService.add(TableNameUtil.getTECLName(uid), newCL);
         return Result.success();
     }
 
     @DeleteMapping
     public Result delete(@GetUserId Integer uid, @RequestBody HashMap<String, Integer> D) {
-        CService.delete(TableNameUtil.getCLName(uid), D.get("id"));
+        CService.delete(TableNameUtil.getTECLName(uid), D.get("id"));
         return Result.success();
     }
-
 
 }
 
