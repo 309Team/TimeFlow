@@ -13,3 +13,4 @@ public class ClassCategory {
 	private Integer id_event;//事项id
 	private Integer id_class;//类别id
 }
+

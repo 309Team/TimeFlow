@@ -1,9 +1,11 @@
 package TimeFlow.service.impl.user;
 
+import TimeFlow.mapper.classification.ClassCategoryMapper;
 import TimeFlow.mapper.user.RegisterMapper;
 import TimeFlow.pojo.User;
 import TimeFlow.service.interf.user.RegisterService;
 import TimeFlow.util.TableNameUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,9 +14,12 @@ public class RegisterServiceImp implements RegisterService {
 
     final
     RegisterMapper registerMapper;
+    final
+    ClassCategoryMapper classCategoryMapper;
 
-    public RegisterServiceImp(RegisterMapper registerMapper) {
+    public RegisterServiceImp(RegisterMapper registerMapper, ClassCategoryMapper classCategoryMapper) {
         this.registerMapper = registerMapper;
+        this.classCategoryMapper = classCategoryMapper;
     }
 
     @Override
@@ -35,14 +40,15 @@ public class RegisterServiceImp implements RegisterService {
             // 没有，进行注册
             registerMapper.userRegister(user);
 
-            // 找到uid
-            User newUser = registerMapper.findUser(user);
-            // 建表
-            registerMapper.createMETable(TableNameUtil.getMEName(newUser.getUid()));
-            registerMapper.createLETable(TableNameUtil.getLEName(newUser.getUid()));
-            registerMapper.createTETable(TableNameUtil.getTEName(newUser.getUid()));
-        }
+            if (user.getUid() == null)
+                return 1; // 注册失败，返回1
 
+            // 建表
+            registerMapper.createMETable(TableNameUtil.getMEName(user.getUid()));
+            registerMapper.createLETable(TableNameUtil.getLEName(user.getUid()));
+            registerMapper.createTETable(TableNameUtil.getTEName(user.getUid()));
+            classCategoryMapper.createTable(TableNameUtil.getTECLName(user.getUid()));
+        }
 
         return 0;
     }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="TimeFlow.mapper.classification.ClassCategoryMapper">
+    <insert id="createTable">
+        create table ${tableName}
+        (
+            id       int unsigned primary key auto_increment comment '关联表下的ID',
+            id_event int unsigned not null comment '事件的ID',
+            id_class int unsigned not null comment '类别的ID'
+        ) comment '关联表';
+    </insert>
+    <insert id="add">
+        INSERT INTO ${tableName} (`id_event`, `id_class`)
+        VALUES (#{eid}, #{cid})
+    </insert>
+    <delete id="dropTable">
+        DROP TABLE ${tableName}
+    </delete>
+    <delete id="deleteByBoth">
+        DELETE
+        FROM ${tableName}
+        WHERE id_event = #{eid}
+          AND id_class = #{cid}
+    </delete>
+    <delete id="deleteByEventId">
+        DELETE
+        FROM ${tableName}
+        WHERE id_event = #{eid}
+    </delete>
+    <delete id="deleteByClassId">
+        DELETE
+        FROM ${tableName}
+        WHERE id_class = #{cid}
+    </delete>
+</mapper>

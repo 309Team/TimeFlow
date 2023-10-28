@@ -10,11 +10,11 @@ public class TableNameUtil {
 		return uid.toString() + "_moment_event";
 	}
 
-	public static String  getTEName(Integer uid) {
+	public static String getTEName(Integer uid) {
 		return uid.toString() + "_time_event";
 	}
 
-	public static String  getCLName(Integer uid) {
+	public static String getTECLName(Integer uid) {
 		return uid.toString() + "_te_classification";
 	}
 
