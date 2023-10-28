@@ -4,7 +4,6 @@ import TimeFlow.mapper.event.LabelEventMapper;
 import TimeFlow.pojo.LabelEvent;
 import TimeFlow.service.interf.event.LabelEventService;
 import TimeFlow.util.TableNameUtil;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

@@ -1,6 +1,6 @@
 package TimeFlow.mapper.event;
 
-import TimeFlow.pojo.Classification;
+import TimeFlow.pojo.TEClassification;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -8,10 +8,10 @@ import java.util.List;
 @Mapper
 public interface ClassificationMapper {
 
-	List<Classification> list(String tableName);
+	List<TEClassification> list(String tableName);
 
 
-	void add(String tableName, Classification newCL);
+	void add(String tableName, TEClassification newCL);
 
 	void delete(String tableName, Integer id);
 }
