@@ -1,6 +1,6 @@
 package TimeFlow.controller.advice;
 
-import TimeFlow.pojo.Result;
+import TimeFlow.pojo.interact.Result;
 import TimeFlow.exception.LoginException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

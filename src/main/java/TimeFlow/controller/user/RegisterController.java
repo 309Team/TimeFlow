@@ -1,6 +1,6 @@
 package TimeFlow.controller.user;
 
-import TimeFlow.pojo.Result;
+import TimeFlow.pojo.interact.Result;
 import TimeFlow.pojo.User;
 import TimeFlow.service.interf.user.RegisterService;
 import org.springframework.web.bind.annotation.PostMapping;

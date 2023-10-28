@@ -41,9 +41,11 @@
             isCompleted   tinyint     not null comment '事件是否完成'
         ) comment '标签事项表';
     </update>
+
     <select id="findUser" resultType="TimeFlow.pojo.User">
         SELECT *
         FROM user
         WHERE name = #{name}
     </select>
+
 </mapper>

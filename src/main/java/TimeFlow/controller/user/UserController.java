@@ -1,7 +1,7 @@
 package TimeFlow.controller.user;
 
 import TimeFlow.config.GetUserId;
-import TimeFlow.pojo.Result;
+import TimeFlow.pojo.interact.Result;
 import TimeFlow.pojo.User;
 import TimeFlow.service.interf.user.UserService;
 import org.springframework.util.StringUtils;

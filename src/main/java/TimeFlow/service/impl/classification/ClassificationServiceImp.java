@@ -3,7 +3,7 @@ package TimeFlow.service.impl.classification;
 
 import TimeFlow.mapper.classification.ClassificationMapper;
 import TimeFlow.pojo.TEClassification;
-import TimeFlow.service.interf.event.classification.ClassificationService;
+import TimeFlow.service.interf.classification.ClassificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

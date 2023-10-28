@@ -3,7 +3,7 @@ package TimeFlow.controller.event;
 
 import TimeFlow.config.GetUserId;
 import TimeFlow.pojo.LabelEvent;
-import TimeFlow.pojo.Result;
+import TimeFlow.pojo.interact.Result;
 import TimeFlow.service.interf.event.LabelEventService;
 import org.springframework.web.bind.annotation.*;
 

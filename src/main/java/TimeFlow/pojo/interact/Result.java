@@ -1,4 +1,4 @@
-package TimeFlow.pojo;
+package TimeFlow.pojo.interact;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

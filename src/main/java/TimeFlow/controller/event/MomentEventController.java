@@ -2,23 +2,16 @@ package TimeFlow.controller.event;
 
 
 import TimeFlow.config.GetUserId;
-import TimeFlow.mapper.event.MomentEventMapper;
 import TimeFlow.pojo.MomentEvent;
-import TimeFlow.pojo.Result;
+import TimeFlow.pojo.interact.Result;
 import TimeFlow.service.interf.event.MomentEventService;
 import TimeFlow.util.TableNameUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.PublicKey;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @RestController
