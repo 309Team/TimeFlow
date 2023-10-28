@@ -1,4 +1,4 @@
-package TimeFlow.service.interf.event;
+package TimeFlow.service.interf.event.classification;
 
 
 import TimeFlow.pojo.TEClassification;

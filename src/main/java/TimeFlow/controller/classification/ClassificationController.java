@@ -1,10 +1,10 @@
-package TimeFlow.controller.event;
+package TimeFlow.controller.classification;
 
 
 import TimeFlow.config.GetUserId;
 import TimeFlow.pojo.Result;
 import TimeFlow.pojo.TEClassification;
-import TimeFlow.service.interf.event.ClassificationService;
+import TimeFlow.service.interf.event.classification.ClassificationService;
 import TimeFlow.util.TableNameUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

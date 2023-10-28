@@ -1,4 +1,4 @@
-package TimeFlow.mapper.event;
+package TimeFlow.mapper.classification;
 
 import TimeFlow.pojo.TEClassification;
 import org.apache.ibatis.annotations.Mapper;
