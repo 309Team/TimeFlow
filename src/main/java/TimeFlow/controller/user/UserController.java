@@ -5,10 +5,7 @@ import TimeFlow.pojo.interact.Result;
 import TimeFlow.pojo.User;
 import TimeFlow.service.interf.user.UserService;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -26,7 +23,7 @@ public class UserController {
      * @param uid 从token解析的uid
      * @return 删除结果
      */
-    @RequestMapping("/delete")
+    @DeleteMapping()
     public Result userDelete(@GetUserId Integer uid) {
 
         // 判断uid是否为空
@@ -49,7 +46,7 @@ public class UserController {
      * @param user 要更新的用户信息实体类
      * @return 更新结果
      */
-    @PostMapping("/update")
+    @PatchMapping()
     public Result userUpdate(@GetUserId Integer uid, @RequestBody User user) {
 
         // 判断uid是否为空

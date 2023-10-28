@@ -17,7 +17,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/te")
+@RequestMapping("/event/te")
 @Controller
 public class TimeEventController {
 
