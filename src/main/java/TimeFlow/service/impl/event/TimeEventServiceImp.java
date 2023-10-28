@@ -30,4 +30,9 @@ public class TimeEventServiceImp implements TimeEventService {
 	public void delete(String tebleName, Integer id) {
 		TEMapper.delete(tebleName, id);
 	}
+
+	@Override
+	public void update(String tableName, TimeEvent newTE) {
+		TEMapper.updata(tableName, newTE);
+	}
 }

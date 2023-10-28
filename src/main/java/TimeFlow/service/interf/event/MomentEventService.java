@@ -17,4 +17,6 @@ public interface MomentEventService {
 
 	//删除事项
 	void delete(String tableName, Integer id);
+
+	void update(String tableName, MomentEvent newME);
 }

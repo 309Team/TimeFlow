@@ -24,5 +24,26 @@
         WHERE id = #{id}
     </delete>
 
+    <update id="update">
+        UPDATE ${tableName}
+        <set>
+            <if test="newME.name != null">
+                name = #{newME.name},
+            </if>
+            <if test="newME.deadline != null">
+                deadline = #{newME.deadline},
+            </if>
+            <if test="newME.setInViewPage != null">
+                setInViewPage = #{newME.setInViewPage},
+            </if>
+            <if test="newME.text != null">
+                text = #{newME.text},
+            </if>
+            <if test="newME.isCompleted != null">
+                isCompleted = #{newME.isCompleted}
+            </if>
+        </set>
+        WHERE id = #{newME.id}
+    </update>
 
 </mapper>

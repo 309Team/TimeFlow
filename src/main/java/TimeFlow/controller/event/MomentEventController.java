@@ -36,10 +36,18 @@ public class MomentEventController {
 		return Result.success();
 	}
 
-	@DeleteMapping
+	@DeleteMapping()
 	public Result delete(@GetUserId Integer uid, @RequestBody HashMap<String,Integer> D){
 		MEService.delete(TableNameUtil.getMEName(uid), D.get("id"));
 		return Result.success();
 	}
+
+	@PatchMapping()
+	public Result update(@GetUserId Integer uid, @RequestBody MomentEvent newME){
+		MEService.update(TableNameUtil.getMEName(uid) ,newME);
+		return Result.success();
+	}
+
+
 }
 

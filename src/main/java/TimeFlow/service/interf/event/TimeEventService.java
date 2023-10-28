@@ -12,4 +12,6 @@ public interface TimeEventService {
 	void add(String tebleName, TimeEvent newTE);
 
 	void delete(String tebleName, Integer id);
+
+	void update(String tableName, TimeEvent newTE);
 }

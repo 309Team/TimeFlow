@@ -32,5 +32,10 @@ public class MomentEventServiceImp implements MomentEventService {
 		MEMapper.delete(tableName, id);
 	}
 
+	@Override
+	public void update(String tableName, MomentEvent newME) {
+		MEMapper.update(tableName, newME);
+	}
+
 
 }

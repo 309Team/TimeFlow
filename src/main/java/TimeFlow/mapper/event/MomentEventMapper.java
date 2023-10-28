@@ -15,4 +15,6 @@ public interface MomentEventMapper {
 	void add(String tableName,MomentEvent newME);
 
 	void delete(String tableName, Integer id);
+
+	void update(String tableName, MomentEvent newME);
 }

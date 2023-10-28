@@ -21,4 +21,30 @@
         WHERE id = #{id}
     </delete>
 
+    <update id="updata">
+        UPDATE ${tableName}
+        <set>
+            <if test="newTE.name != null">
+                name = #{newTE.name},
+            </if>
+            <if test="newTE.startTime != null">
+                startTime = #{newTE.startTime},
+            </if>
+            <if test="newTE.overTime != null">
+                overTime = #{newTE.overTime},
+            </if>
+            <if test="newTE.setInViewPage != null">
+                setInViewPage = #{newTE.setInViewPage},
+            </if>
+            <if test="newTE.text != null">
+                text = #{newTE.text},
+            </if>
+            <if test="newTE.isCompleted != null">
+                isCompleted = #{newTE.isCompleted}
+            </if>
+        </set>
+        WHERE id = #{newTE.id}
+
+    </update>
+
 </mapper>

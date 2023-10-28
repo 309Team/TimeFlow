@@ -13,6 +13,6 @@ public interface TimeEvenMapper {
 	void add(String tableName,TimeEvent newTE);
 
 	void delete(String tableName, Integer id);
-
-
+	
+	void updata(String tableName, TimeEvent newTE);
 }

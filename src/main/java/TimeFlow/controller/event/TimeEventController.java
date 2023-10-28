@@ -2,6 +2,7 @@ package TimeFlow.controller.event;
 
 
 import TimeFlow.config.GetUserId;
+import TimeFlow.pojo.MomentEvent;
 import TimeFlow.pojo.TimeEvent;
 import TimeFlow.pojo.interact.Result;
 import TimeFlow.service.interf.event.TimeEventService;
@@ -39,6 +40,12 @@ public class TimeEventController {
 	@DeleteMapping
 	public Result delete(@GetUserId Integer uid, @RequestBody HashMap<String,Integer> D){
 		TEService.delete(TableNameUtil.getTEName(uid), D.get("id"));
+		return Result.success();
+	}
+
+	@PatchMapping()
+	public Result update(@GetUserId Integer uid, @RequestBody TimeEvent newTE){
+		TEService.update(TableNameUtil.getTEName(uid) ,newTE);
 		return Result.success();
 	}
 
