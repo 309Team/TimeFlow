@@ -17,18 +17,18 @@ public class TimeEventServiceImp implements TimeEventService {
 	private TimeEvenMapper TEMapper;
 
 	@Override
-	public List<TimeEvent> list(String tebleName, String dateSTR) {
-		return TEMapper.list(tebleName, dateSTR);
+    public List<TimeEvent> list(String tableName, String dateSTR) {
+        return TEMapper.list(tableName, dateSTR);
 	}
 
 	@Override
-	public void add(String tebleName, TimeEvent newTE) {
-		TEMapper.add(tebleName, newTE);
+    public void add(String tableName, TimeEvent newTE) {
+        TEMapper.add(tableName, newTE);
 	}
 
 	@Override
-	public void delete(String tebleName, Integer id) {
-		TEMapper.delete(tebleName, id);
+    public void delete(String tableName, Integer id) {
+        TEMapper.delete(tableName, id);
 	}
 
 	@Override

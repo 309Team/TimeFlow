@@ -1,6 +1,7 @@
 package TimeFlow.service.impl.classification;
 
 
+import TimeFlow.mapper.classification.ClassCategoryMapper;
 import TimeFlow.mapper.classification.ClassificationMapper;
 import TimeFlow.pojo.TEClassification;
 import TimeFlow.service.interf.classification.ClassificationService;
@@ -12,8 +13,15 @@ import java.util.List;
 @Service
 public class ClassificationServiceImp implements ClassificationService {
 
-	@Autowired
-	private ClassificationMapper CMapper;
+	private final ClassificationMapper CMapper;
+
+	private final ClassCategoryMapper classCategoryMapper;
+
+	public ClassificationServiceImp(ClassificationMapper CMapper, ClassCategoryMapper classCategoryMapper) {
+		this.CMapper = CMapper;
+		this.classCategoryMapper = classCategoryMapper;
+	}
+
 
 	@Override
     public List<TEClassification> list(String tableName) {

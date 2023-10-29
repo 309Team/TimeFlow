@@ -38,7 +38,7 @@ public class UserServiceImp implements UserService {
         userMapper.dropTable(TableNameUtil.getLEName(uid));
         userMapper.dropTable(TableNameUtil.getMEName(uid));
         userMapper.dropTable(TableNameUtil.getTEName(uid));
-        classCategoryMapper.dropTable(TableNameUtil.getTECLName(uid));
+        classCategoryMapper.dropTable(TableNameUtil.getTEMiddleName(uid));
         // 从用户表中删除
         userMapper.userDelete(uid);
 

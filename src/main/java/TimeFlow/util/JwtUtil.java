@@ -24,7 +24,7 @@ public class JwtUtil {
     /**
      * 创建token
      *
-     * @param id        要验证的id
+     * @param uid        要验证的id
      * @param ttlMillis token有效时长
      * @return token串
      */
@@ -72,8 +72,7 @@ public class JwtUtil {
             decodedJWT = JWT.require(Algorithm.HMAC256(JWT_KEY)).build().verify(token);
         } catch (Exception e) {
             throw new LoginException("token解析失败！");
-        } finally {
-            return decodedJWT;
         }
+        return decodedJWT;
     }
 }

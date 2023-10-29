@@ -5,7 +5,6 @@ import TimeFlow.mapper.user.RegisterMapper;
 import TimeFlow.pojo.User;
 import TimeFlow.service.interf.user.RegisterService;
 import TimeFlow.util.TableNameUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,7 +46,7 @@ public class RegisterServiceImp implements RegisterService {
             registerMapper.createMETable(TableNameUtil.getMEName(user.getUid()));
             registerMapper.createLETable(TableNameUtil.getLEName(user.getUid()));
             registerMapper.createTETable(TableNameUtil.getTEName(user.getUid()));
-            classCategoryMapper.createTable(TableNameUtil.getTECLName(user.getUid()));
+            classCategoryMapper.createTable(TableNameUtil.getTEMiddleName(user.getUid()));
         }
 
         return 0;

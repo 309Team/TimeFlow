@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface TimeEventService {
 
-	List<TimeEvent> list(String tebleName, String dateSTR);
+    List<TimeEvent> list(String tableName, String dateSTR);
 
-	void add(String tebleName, TimeEvent newTE);
+    void add(String tableName, TimeEvent newTE);
 
-	void delete(String tebleName, Integer id);
+    void delete(String tableName, Integer id);
 
 	void update(String tableName, TimeEvent newTE);
 }
