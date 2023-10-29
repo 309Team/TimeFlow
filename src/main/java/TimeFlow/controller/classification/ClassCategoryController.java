@@ -78,7 +78,7 @@ public class ClassCategoryController {
 
 	@GetMapping("/event")
 	public Result listCLass(@GetUserId Integer uid, @RequestBody HashMap<String, Integer> m) {
-		return Result.success(classCategoryService.listCLass(TableNameUtil.getMidTabName(uid), m.get("id")));
+		return Result.success(classCategoryService.listCLass(TableNameUtil.getMidTabName(uid),TableNameUtil.getTECLName(uid), m.get("id")));
 	}
 
 

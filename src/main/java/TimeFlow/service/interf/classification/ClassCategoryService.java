@@ -1,6 +1,7 @@
 package TimeFlow.service.interf.classification;
 
 import TimeFlow.pojo.ClassCategory;
+import TimeFlow.pojo.TEClassification;
 import TimeFlow.pojo.TimeEvent;
 import TimeFlow.pojo.interact.Grouping;
 
@@ -35,5 +36,5 @@ public interface ClassCategoryService {
 
     void deleteFromClass(String tableName, Grouping group);
 
-    List<ClassCategory> listCLass(String tableName, Integer id);
+    List<TEClassification> listCLass(String midTabName, String TECLTabName, Integer id);
 }

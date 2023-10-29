@@ -61,10 +61,11 @@
           and id_class = ${id_class}
     </delete>
 
-    <select id="listCLass" resultType="TimeFlow.pojo.ClassCategory">
+    <select id="listCLass" resultType="TimeFlow.pojo.TEClassification">
         select *
-        from ${tableName}
-        where id_event = ${id}
+        from ${TECLTabName}
+        inner join ${midTabName}
+        on ${TECLTabName}.id = ${midTabName}.id_class
     </select>
 
 

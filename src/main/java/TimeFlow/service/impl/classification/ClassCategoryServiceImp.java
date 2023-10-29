@@ -1,7 +1,9 @@
 package TimeFlow.service.impl.classification;
 
 import TimeFlow.mapper.classification.ClassCategoryMapper;
+import TimeFlow.mapper.event.TimeEvenMapper;
 import TimeFlow.pojo.ClassCategory;
+import TimeFlow.pojo.TEClassification;
 import TimeFlow.pojo.TimeEvent;
 import TimeFlow.pojo.interact.Grouping;
 import TimeFlow.service.interf.classification.ClassCategoryService;
@@ -80,8 +82,8 @@ public class ClassCategoryServiceImp implements ClassCategoryService {
 	}
 
 	@Override
-	public List<ClassCategory> listCLass(String tableName, Integer id) {
-		return classCategoryMapper.listCLass(tableName, id);
+	public List<TEClassification> listCLass(String midTabName, String TECLTabName, Integer id) {
+		return classCategoryMapper.listCLass(midTabName,TECLTabName, id);
 	}
 
 
