@@ -32,11 +32,11 @@ public class MiddleTableTest {
     void addTest() {
 
         List<Integer> integers = new ArrayList<>();
-        integers.add(1);
-        integers.add(2);
         integers.add(3);
+        integers.add(2);
+        integers.add(4);
 
-        classCategoryService.addTEToCategory(5, 1, integers);
+        classCategoryService.addTEToCategory(13, 1, integers);
     }
 
     @Test
@@ -49,5 +49,12 @@ public class MiddleTableTest {
         classCategoryService.deleteTEFromCategory(5, 1, integers);
     }
 
+    @Test
+    void classFindTest() {
+        List<Integer> integers = new ArrayList<>();
+        integers.add(3);
 
+
+        System.out.println(classCategoryService.listEventsByClass(5, integers));
+    }
 }

@@ -14,4 +14,6 @@ public interface TimeEventService {
     void delete(String tableName, Integer id);
 
 	void update(String tableName, TimeEvent newTE);
+
+    List<TimeEvent> listByClass(Integer uid, List<Integer> cid);
 }

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="TimeFlow.mapper.event.TimeEvenMapper">
+<mapper namespace="TimeFlow.mapper.event.TimeEventMapper">
     <select id="list" resultType="TimeFlow.pojo.TimeEvent">
         SELECT * FROM ${tableName} WHERE
             EXTRACT(YEAR FROM startTime) = EXTRACT(YEAR FROM #{date}) and
             EXTRACT(MONTH FROM startTime) = EXTRACT(MONTH FROM #{date}) and
             EXTRACT(DAY FROM startTime) = EXTRACT(DAY FROM #{date})
+    </select>
+    <select id="listById" resultType="TimeFlow.pojo.TimeEvent">
+        SELECT * FROM ${tableName} WHERE id IN
+        <foreach collection="eid" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
     </select>
 
     <insert id="add">
@@ -21,7 +27,7 @@
         WHERE id = #{id}
     </delete>
 
-    <update id="updata">
+    <update id="update">
         UPDATE ${tableName}
         <set>
             <if test="newTE.name != null">

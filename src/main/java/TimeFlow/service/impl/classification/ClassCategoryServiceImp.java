@@ -11,6 +11,8 @@ import TimeFlow.util.TableNameUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -63,6 +65,15 @@ public class ClassCategoryServiceImp implements ClassCategoryService {
 		}
 
 		return cnt;
+	}
+
+	@Override
+	public List<Integer> listEventsByClass(Integer uid, List<Integer> cid) {
+
+		List<Integer> allEvents = classCategoryMapper.findAllEventsByCid(TableNameUtil.getMidTabName(uid), cid);
+
+		// 去重操作
+		return new ArrayList<>(new HashSet<>(allEvents));
 	}
 
 

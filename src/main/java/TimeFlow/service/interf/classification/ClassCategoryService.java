@@ -30,6 +30,8 @@ public interface ClassCategoryService {
     long deleteTEFromCategory(Integer uid, Integer cid, List<Integer> eid);
 
 
+    List<Integer> listEventsByClass(Integer uid, List<Integer> cid);
+
 //---------------------------------------------------------------
     void addToClass(String tableName, Grouping group);
 

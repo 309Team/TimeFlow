@@ -37,7 +37,10 @@
     <select id="findAllEventsByCid" resultType="java.lang.Integer">
         SELECT id_event
         FROM ${tableName}
-        WHERE id_class = #{cid}
+        WHERE id_class IN
+        <foreach collection="cid" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
     </select>
     <select id="findAllClassByEid" resultType="java.lang.Integer">
         SELECT id_class

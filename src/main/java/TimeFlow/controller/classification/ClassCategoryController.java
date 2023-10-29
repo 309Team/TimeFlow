@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
+import java.util.List;
+
 /**
  * 中间表操作实体类
  * 根路径 ”/middle“
@@ -18,48 +20,41 @@ import java.util.HashMap;
 @RestController
 @RequestMapping("/grouping")
 public class ClassCategoryController {
-	//TODO
+    //TODO
 
-	final
-	ClassCategoryService classCategoryService;
+    final
+    ClassCategoryService classCategoryService;
 
-	public ClassCategoryController(ClassCategoryService classCategoryService) {
-		this.classCategoryService = classCategoryService;
-	}
+    public ClassCategoryController(ClassCategoryService classCategoryService) {
+        this.classCategoryService = classCategoryService;
+    }
 
 
-	/**
-	 * 从类中添加事项
-	 *
-	 * @param uid      用户id
-	 * @param grouping 添加类的id以及事项id列表
-	 * @return 是否成功
-	 */
-	@PostMapping("/class")
-	Result addEventsToClass(@GetUserId Integer uid, @RequestBody Grouping grouping) {
-		long code = classCategoryService.addTEToCategory(uid, grouping.getId(), grouping.getList());
-		return code == 0 ? Result.error("添加失败") : Result.success();
-	}
+    /**
+     * 从类中添加事项
+     *
+     * @param uid      用户id
+     * @param grouping 添加类的id以及事项id列表
+     * @return 是否成功
+     */
+    @PostMapping("/class")
+    Result addEventsToClass(@GetUserId Integer uid, @RequestBody Grouping grouping) {
+        long code = classCategoryService.addTEToCategory(uid, grouping.getId(), grouping.getList());
+        return code == 0 ? Result.error("添加失败") : Result.success();
+    }
 
-	/**
-	 * 从类中删除事项
-	 *
-	 * @param uid      用户id
-	 * @param grouping 删除类的id以及事项id列表
-	 * @return 是否成功
-	 */
-	@DeleteMapping("/class")
-	Result deleteEventsToClass(@GetUserId Integer uid, @RequestBody Grouping grouping) {
-		long code = classCategoryService.deleteTEFromCategory(uid, grouping.getId(), grouping.getList());
-		return code == 0 ? Result.error("删除失败") : Result.success();
-	}
-
-	@GetMapping("/class")
-	Result listClassEvent(@GetUserId Integer uid) {
-
-		// TODO 实现信息获取联查
-		return Result.success();
-	}
+    /**
+     * 从类中删除事项
+     *
+     * @param uid            用户id
+     * @param grouping 删除类的id以及事项id列表
+     * @return 是否成功
+     */
+    @DeleteMapping("/class")
+    Result deleteEventsToClass(@GetUserId Integer uid, @RequestBody Grouping grouping) {
+        long code = classCategoryService.deleteTEFromCategory(uid, grouping.getId(), grouping.getList());
+        return code == 0 ? Result.error("删除失败") : Result.success();
+    }
 
 
 //-----------------------------------------------------------------------------------------------------

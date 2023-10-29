@@ -31,7 +31,7 @@ public interface ClassCategoryMapper {
     long deleteByClassId(@Param("tableName") String tableName, @Param("cid") Integer cid);
 
     // 通过分类查找所有事项
-    List<Integer> findAllEventsByCid(@Param("tableName") String tableName, @Param("cid") Integer cid);
+    List<Integer> findAllEventsByCid(@Param("tableName") String tableName, @Param("cid") List<Integer> cid);
 
     // 通过事项查找所有分类
     List<Integer> findAllClassByEid(@Param("tableName") String tableName, @Param("cid") Integer eid);

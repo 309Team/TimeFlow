@@ -1,10 +1,10 @@
 package TimeFlow.service.impl.event;
 
 
-import TimeFlow.mapper.event.MomentEventMapper;
-import TimeFlow.mapper.event.TimeEvenMapper;
+import TimeFlow.mapper.event.TimeEventMapper;
 import TimeFlow.pojo.TimeEvent;
 import TimeFlow.service.interf.event.TimeEventService;
+import TimeFlow.util.TableNameUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class TimeEventServiceImp implements TimeEventService {
 
 	@Autowired
-	private TimeEvenMapper TEMapper;
+	private TimeEventMapper TEMapper;
 
 	@Override
     public List<TimeEvent> list(String tableName, String dateSTR) {
@@ -33,6 +33,12 @@ public class TimeEventServiceImp implements TimeEventService {
 
 	@Override
 	public void update(String tableName, TimeEvent newTE) {
-		TEMapper.updata(tableName, newTE);
+		TEMapper.update(tableName, newTE);
 	}
+
+	@Override
+	public List<TimeEvent> listByClass(Integer uid, List<Integer> cid) {
+		return TEMapper.listById(TableNameUtil.getTEName(uid), cid);
+	}
+
 }
