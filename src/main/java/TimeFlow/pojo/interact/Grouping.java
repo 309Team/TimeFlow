@@ -19,7 +19,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClassAddEvents {
+public class Grouping {
 	private Integer id;//事项id 或 类别id
 	private List<Integer> addList;//事项列表 或 类别列表
 }
