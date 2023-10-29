@@ -21,5 +21,5 @@ import java.util.List;
 @AllArgsConstructor
 public class Grouping {
 	private Integer id;//事项id 或 类别id
-	private List<Integer> addList;//事项列表 或 类别列表
+	private List<Integer> list;//事项列表 或 类别列表
 }

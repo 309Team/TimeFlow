@@ -13,6 +13,7 @@
         INSERT INTO ${tableName} (`id_event`, `id_class`)
         VALUES (#{eid}, #{cid})
     </insert>
+
     <delete id="dropTable">
         DROP TABLE ${tableName}
     </delete>
@@ -32,6 +33,7 @@
         FROM ${tableName}
         WHERE id_class = #{cid}
     </delete>
+
     <select id="findAllEventsByCid" resultType="java.lang.Integer">
         SELECT id_event
         FROM ${tableName}
@@ -42,4 +44,27 @@
         FROM ${tableName}
         WHERE id_event = #{cid}
     </select>
+
+
+
+
+
+
+
+    <insert id="addToClass">
+        INSERT INTO ${tableName}
+            (id, id_event, id_class)
+        VALUES (null, ${id_event}, ${id_class})
+    </insert>
+
+    <delete id="deleteFromClass">
+        DELETE
+        FROM ${tableName}
+        WHERE id_event = ${id_event}
+          and id_class = ${id_class}
+    </delete>
+
+
+
+
 </mapper>

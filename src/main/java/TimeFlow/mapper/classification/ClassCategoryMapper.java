@@ -1,6 +1,7 @@
 package TimeFlow.mapper.classification;
 
 import TimeFlow.pojo.ClassCategory;
+import TimeFlow.pojo.interact.Grouping;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -33,4 +34,9 @@ public interface ClassCategoryMapper {
     // 通过事项查找所有分类
     List<Integer> findAllClassByEid(@Param("tableName") String tableName, @Param("cid") Integer eid);
 
+
+    //-------------------------------------------------------------------------------
+    void addToClass(String tableName, Integer id_event, Integer id_class);
+
+    void deleteFromClass(String tableName, Integer id_event, Integer id_class);
 }

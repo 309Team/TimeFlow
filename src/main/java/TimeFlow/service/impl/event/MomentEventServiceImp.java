@@ -2,6 +2,7 @@ package TimeFlow.service.impl.event;
 
 import TimeFlow.mapper.event.MomentEventMapper;
 import TimeFlow.pojo.MomentEvent;
+import TimeFlow.pojo.interact.Grouping;
 import TimeFlow.service.interf.event.MomentEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,8 @@ public class MomentEventServiceImp implements MomentEventService {
 	public void update(String tableName, MomentEvent newME) {
 		MEMapper.update(tableName, newME);
 	}
+
+
 
 
 }

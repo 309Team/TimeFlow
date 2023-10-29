@@ -2,6 +2,7 @@ package TimeFlow.service.interf.event;
 
 
 import TimeFlow.pojo.MomentEvent;
+import TimeFlow.pojo.interact.Grouping;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -19,4 +20,6 @@ public interface MomentEventService {
 	void delete(String tableName, Integer id);
 
 	void update(String tableName, MomentEvent newME);
+
+
 }

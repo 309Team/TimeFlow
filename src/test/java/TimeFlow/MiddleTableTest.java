@@ -1,7 +1,6 @@
 package TimeFlow;
 
 import TimeFlow.mapper.classification.ClassCategoryMapper;
-import TimeFlow.pojo.ClassCategory;
 import TimeFlow.service.interf.classification.ClassCategoryService;
 import TimeFlow.util.TableNameUtil;
 import org.junit.jupiter.api.Test;
@@ -21,12 +20,12 @@ public class MiddleTableTest {
 
     @Test
     void createTest() {
-        classCategoryMapper.createTable(TableNameUtil.getTEMiddleName(5));
+        classCategoryMapper.createTable(TableNameUtil.getMidTabName(5));
     }
 
     //@Test
     void dropTest() {
-        classCategoryMapper.dropTable(TableNameUtil.getTEMiddleName(5));
+        classCategoryMapper.dropTable(TableNameUtil.getMidTabName(5));
     }
 
     @Test

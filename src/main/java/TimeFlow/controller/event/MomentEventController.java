@@ -3,6 +3,7 @@ package TimeFlow.controller.event;
 
 import TimeFlow.config.GetUserId;
 import TimeFlow.pojo.MomentEvent;
+import TimeFlow.pojo.interact.Grouping;
 import TimeFlow.pojo.interact.Result;
 import TimeFlow.service.interf.event.MomentEventService;
 import TimeFlow.util.TableNameUtil;
@@ -47,6 +48,7 @@ public class MomentEventController {
 		MEService.update(TableNameUtil.getMEName(uid) ,newME);
 		return Result.success();
 	}
+
 
 
 }

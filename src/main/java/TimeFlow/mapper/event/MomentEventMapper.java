@@ -1,6 +1,7 @@
 package TimeFlow.mapper.event;
 
 import TimeFlow.pojo.MomentEvent;
+import TimeFlow.pojo.interact.Grouping;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.time.LocalDate;
@@ -17,4 +18,5 @@ public interface MomentEventMapper {
 	void delete(String tableName, Integer id);
 
 	void update(String tableName, MomentEvent newME);
+
 }

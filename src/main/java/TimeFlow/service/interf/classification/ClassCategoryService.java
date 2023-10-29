@@ -1,5 +1,7 @@
 package TimeFlow.service.interf.classification;
 
+import TimeFlow.pojo.interact.Grouping;
+
 import java.util.List;
 
 public interface ClassCategoryService {
@@ -25,4 +27,9 @@ public interface ClassCategoryService {
     long deleteTEFromCategory(Integer uid, Integer cid, List<Integer> eid);
 
 
+//---------------------------------------------------------------
+    void addToClass(String tableName, Grouping group);
+
+
+    void deleteFromClass(String tableName, Grouping group);
 }

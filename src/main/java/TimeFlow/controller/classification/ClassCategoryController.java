@@ -4,6 +4,7 @@ import TimeFlow.config.GetUserId;
 import TimeFlow.pojo.interact.Grouping;
 import TimeFlow.pojo.interact.Result;
 import TimeFlow.service.interf.classification.ClassCategoryService;
+import TimeFlow.util.TableNameUtil;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * 对事项操作请求路径 "/event"
  */
 @RestController
-@RequestMapping("/middle")
+@RequestMapping("/grouping")
 public class ClassCategoryController {
     //TODO
 
@@ -34,7 +35,7 @@ public class ClassCategoryController {
      */
     @PostMapping("/class")
     Result addEventsToClass(@GetUserId Integer uid, @RequestBody Grouping grouping) {
-        long code = classCategoryService.addTEToCategory(uid, grouping.getId(), grouping.getAddList());
+        long code = classCategoryService.addTEToCategory(uid, grouping.getId(), grouping.getList());
         return code == 0 ? Result.error("添加失败") : Result.success();
     }
 
@@ -47,7 +48,7 @@ public class ClassCategoryController {
      */
     @DeleteMapping("/class")
     Result deleteEventsToClass(@GetUserId Integer uid, @RequestBody Grouping grouping) {
-        long code = classCategoryService.deleteTEFromCategory(uid, grouping.getId(), grouping.getAddList());
+        long code = classCategoryService.deleteTEFromCategory(uid, grouping.getId(), grouping.getList());
         return code == 0 ? Result.error("删除失败") : Result.success();
     }
 
@@ -57,4 +58,23 @@ public class ClassCategoryController {
         // TODO 实现信息获取联查
         return Result.success();
     }
+
+
+//-----------------------------------------------------------------------------------------------------
+
+    @PostMapping("/event")
+    public Result addToClass(@GetUserId Integer uid, @RequestBody Grouping group){
+        classCategoryService.addToClass(TableNameUtil.getMidTabName(uid), group);
+        return Result.success();
+    }
+
+    @DeleteMapping("/event")
+    public Result deleteFromClass(@GetUserId Integer uid, @RequestBody Grouping group){
+        classCategoryService.deleteFromClass(TableNameUtil.getMidTabName(uid), group);
+        return Result.success();
+    }
+
+
+
+
 }

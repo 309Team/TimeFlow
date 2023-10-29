@@ -46,7 +46,7 @@ public class RegisterServiceImp implements RegisterService {
             registerMapper.createMETable(TableNameUtil.getMEName(user.getUid()));
             registerMapper.createLETable(TableNameUtil.getLEName(user.getUid()));
             registerMapper.createTETable(TableNameUtil.getTEName(user.getUid()));
-            classCategoryMapper.createTable(TableNameUtil.getTEMiddleName(user.getUid()));
+            classCategoryMapper.createTable(TableNameUtil.getMidTabName(user.getUid()));
         }
 
         return 0;

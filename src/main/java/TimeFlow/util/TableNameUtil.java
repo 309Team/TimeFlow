@@ -18,8 +18,9 @@ public class TableNameUtil {
 		return uid.toString() + "_te_classification";
 	}
 
-    public static String getTEMiddleName(Integer uid) {
-        return uid.toString() + "_te_middle_table";
+    public static String getMidTabName(Integer uid) {
+        return uid.toString() + "_te_class_category";
     }
+
 
 }
