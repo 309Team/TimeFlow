@@ -77,4 +77,14 @@ public class ClassCategoryServiceImp implements ClassCategoryService {
 		}
 	}
 
+	@Override
+	public void listCLass(String midTabName, Object list) {
+//		for (Integer:
+//			 ) {
+//
+//		}
+		;
+	}
+
+
 }

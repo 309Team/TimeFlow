@@ -39,4 +39,6 @@ public interface ClassCategoryMapper {
     void addToClass(String tableName, Integer id_event, Integer id_class);
 
     void deleteFromClass(String tableName, Integer id_event, Integer id_class);
+
+
 }

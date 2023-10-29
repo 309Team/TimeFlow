@@ -32,4 +32,6 @@ public interface ClassCategoryService {
 
 
     void deleteFromClass(String tableName, Grouping group);
+
+    void listCLass(String midTabName, Object list);
 }

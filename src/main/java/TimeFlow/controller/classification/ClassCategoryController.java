@@ -7,6 +7,8 @@ import TimeFlow.service.interf.classification.ClassCategoryService;
 import TimeFlow.util.TableNameUtil;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+
 /**
  * 中间表操作实体类
  * 根路径 ”/middle“
@@ -74,7 +76,11 @@ public class ClassCategoryController {
         return Result.success();
     }
 
-
+    @GetMapping("/event")
+    public Result listCLass(@GetUserId Integer uid, @RequestBody HashMap m){
+        classCategoryService.listCLass(TableNameUtil.getMidTabName(uid), m.get("list"));
+        return Result.success();
+    }
 
 
 }
