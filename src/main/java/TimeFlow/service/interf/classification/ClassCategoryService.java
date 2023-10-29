@@ -1,5 +1,7 @@
 package TimeFlow.service.interf.classification;
 
+import TimeFlow.pojo.ClassCategory;
+import TimeFlow.pojo.TimeEvent;
 import TimeFlow.pojo.interact.Grouping;
 
 import java.util.List;
@@ -33,5 +35,5 @@ public interface ClassCategoryService {
 
     void deleteFromClass(String tableName, Grouping group);
 
-    void listCLass(String midTabName, Object list);
+    List<ClassCategory> listCLass(String tableName, Integer id);
 }

@@ -1,6 +1,7 @@
 package TimeFlow.mapper.classification;
 
 import TimeFlow.pojo.ClassCategory;
+import TimeFlow.pojo.TimeEvent;
 import TimeFlow.pojo.interact.Grouping;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -40,5 +41,5 @@ public interface ClassCategoryMapper {
 
     void deleteFromClass(String tableName, Integer id_event, Integer id_class);
 
-
+    List<ClassCategory> listCLass(String tableName, Integer id);
 }

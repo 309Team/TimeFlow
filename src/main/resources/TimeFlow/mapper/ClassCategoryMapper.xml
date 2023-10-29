@@ -48,9 +48,6 @@
 
 
 
-
-
-
     <insert id="addToClass">
         INSERT INTO ${tableName}
             (id, id_event, id_class)
@@ -64,6 +61,11 @@
           and id_class = ${id_class}
     </delete>
 
+    <select id="listCLass" resultType="TimeFlow.pojo.ClassCategory">
+        select *
+        from ${tableName}
+        where id_event = ${id}
+    </select>
 
 
 
