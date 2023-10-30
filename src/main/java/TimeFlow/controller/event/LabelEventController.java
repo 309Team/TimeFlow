@@ -13,6 +13,7 @@ import java.util.HashMap;
 
 
 @RestController
+@RequestMapping("/event/le")
 public class LabelEventController {
 
     private final LabelEventService labelEventService;
@@ -22,30 +23,30 @@ public class LabelEventController {
     }
 
     // 获得所有标签事件
-    @GetMapping("/getAllLabelEvent")
+    @GetMapping
     public Result getAllLabelEvent(@GetUserId Integer uid) {
         return Result.success(labelEventService.findAll(uid));
     }
 
-    @GetMapping("/getDateLabelEvent")
+    @GetMapping("/{date}")
     public Result getDateLabelEvent(@GetUserId Integer uid,
-                                    @RequestBody HashMap<String, String> date) {
+                                    @PathVariable String date) {
 
         // 对前端日期进行转换为LocalDate
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate localDate = LocalDate.parse(date.get("date"), fmt);
+        LocalDate localDate = LocalDate.parse(date, fmt);
 
         // 进行查询
         return Result.success(labelEventService.findDate(uid, localDate));
     }
 
-    @PostMapping("/addLabelEvent")
+    @PostMapping()
     public Result addLabelEvent(@GetUserId Integer uid, @RequestBody LabelEvent labelEvent) {
         labelEventService.labelEventInsert(uid, labelEvent);
         return Result.success();
     }
 
-    @DeleteMapping("/deleteLE/{eid}")
+    @DeleteMapping("/{eid}")
     public Result deleteLabelEvent(@GetUserId Integer uid, @PathVariable Integer eid) {
         if (labelEventService.labelEventDelete(uid, eid) != 0)
             return Result.success();
@@ -53,7 +54,7 @@ public class LabelEventController {
             return Result.error("表中无数据");
     }
 
-    @PostMapping("/updateLE")
+    @PatchMapping()
     public Result updateLabelEvent(@GetUserId Integer uid, @RequestBody LabelEvent labelEvent) {
         return labelEventService.labelEventUpdate(uid, labelEvent) == 0 ?
                 Result.error("修改失败") : Result.success();
