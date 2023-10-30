@@ -10,7 +10,7 @@
     </parent>
     <groupId>example</groupId>
     <artifactId>TimeFlow</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <name>demo</name>
     <description>demo</description>
     <properties>
