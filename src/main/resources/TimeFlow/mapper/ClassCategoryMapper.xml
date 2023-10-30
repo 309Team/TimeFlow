@@ -64,7 +64,7 @@
           and id_class = ${id_class}
     </delete>
 
-    <select id="listCLass" resultType="TimeFlow.pojo.TEClassification">
+    <select id="listCLass" resultType="TimeFlow.pojo.Classification">
         select *
         from ${TECLTabName}
         inner join ${midTabName}

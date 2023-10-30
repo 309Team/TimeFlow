@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TEClassification {
+public class Classification {
 	private Integer id;
 	private String name;
 	private String text;

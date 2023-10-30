@@ -1,7 +1,7 @@
 package TimeFlow.service.impl.statistic;
 
 import TimeFlow.mapper.statistic.StatisticMapper;
-import TimeFlow.pojo.TEClassification;
+import TimeFlow.pojo.Classification;
 import TimeFlow.pojo.TimeEvent;
 import TimeFlow.pojo.interact.ClassStatistic;
 import TimeFlow.service.interf.statistic.StatisticService;
@@ -28,8 +28,8 @@ public class StatisticServiceImp implements StatisticService {
 		String MidTabName = TableNameUtil.getMidTabName(uid);
 		List<ClassStatistic> CSlist = new ArrayList<>();
 
-		List<TEClassification> clslist = STAMapper.listclass(TECLName);
-		for (TEClassification cls : clslist) {
+        List<Classification> clslist = STAMapper.listclass(TECLName);
+        for (Classification cls : clslist) {
 			int duration = 0;
 			List<TimeEvent> telist = STAMapper.listevent(TEName, MidTabName, D.get("startTime"), D.get("overTime"), cls.getId());
 			for (TimeEvent evnt : telist) {

@@ -3,10 +3,9 @@ package TimeFlow.service.impl.classification;
 
 import TimeFlow.mapper.classification.ClassCategoryMapper;
 import TimeFlow.mapper.classification.ClassificationMapper;
-import TimeFlow.pojo.TEClassification;
+import TimeFlow.pojo.Classification;
 import TimeFlow.service.interf.classification.ClassificationService;
 import TimeFlow.util.TableNameUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,12 +24,12 @@ public class ClassificationServiceImp implements ClassificationService {
 	}
 
 	@Override
-    public List<TEClassification> list(String tableName) {
+    public List<Classification> list(String tableName) {
 		return CMapper.list(tableName);
 	}
 
 	@Override
-    public void add(String tableName, TEClassification newCL) {
+    public void add(String tableName, Classification newCL) {
 		CMapper.add(tableName, newCL);
 	}
 

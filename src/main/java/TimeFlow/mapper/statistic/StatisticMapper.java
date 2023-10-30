@@ -1,6 +1,6 @@
 package TimeFlow.mapper.statistic;
 
-import TimeFlow.pojo.TEClassification;
+import TimeFlow.pojo.Classification;
 import TimeFlow.pojo.TimeEvent;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -20,9 +20,9 @@ import java.util.List;
 public interface StatisticMapper {
 
 
-	List<TEClassification> listclass(String tableName);
+    List<Classification> listclass(String tableName);
 
 	List<TimeEvent> listevent(String tableName, String midTabName, String startTime, String overTime, Integer id);
 
-	TEClassification findClass(String midTabName,Integer eid,  Integer cid);
+    Classification findClass(String midTabName, Integer eid, Integer cid);
 }

@@ -3,7 +3,7 @@
 <mapper namespace="TimeFlow.mapper.statistic.StatisticMapper">
 
 
-    <select id="listclass" resultType="TimeFlow.pojo.TEClassification">
+    <select id="listclass" resultType="TimeFlow.pojo.Classification">
         select * from ${tableName}
     </select>
 
@@ -19,7 +19,7 @@
           and EXTRACT(DAY FROM #{overTime}) >= EXTRACT(DAY FROM overTime)
     </select>
 
-    <select id="findClass" resultType="TimeFlow.pojo.TEClassification">
+    <select id="findClass" resultType="TimeFlow.pojo.Classification">
         select * from ${midTabName}
         where id_event = ${eid}
         and id_class = ${cid}

@@ -1,15 +1,15 @@
 package TimeFlow.service.interf.classification;
 
 
-import TimeFlow.pojo.TEClassification;
+import TimeFlow.pojo.Classification;
 
 import java.util.List;
 
 public interface ClassificationService {
 
-    List<TEClassification> list(String tableName);
+    List<Classification> list(String tableName);
 
-    void add(String tableName, TEClassification newCL);
+    void add(String tableName, Classification newCL);
 
     void delete(Integer uid, Integer cid);
 }

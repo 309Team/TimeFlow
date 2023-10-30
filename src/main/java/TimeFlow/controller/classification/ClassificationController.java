@@ -3,12 +3,10 @@ package TimeFlow.controller.classification;
 
 import TimeFlow.config.GetUserId;
 import TimeFlow.pojo.interact.Result;
-import TimeFlow.pojo.TEClassification;
-import TimeFlow.service.interf.classification.ClassCategoryService;
+import TimeFlow.pojo.Classification;
 import TimeFlow.service.interf.classification.ClassificationService;
 import TimeFlow.util.TableNameUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -30,7 +28,7 @@ public class ClassificationController {
     }
 
     @PostMapping()
-    public Result add(@GetUserId Integer uid, @RequestBody TEClassification newCL) {
+    public Result add(@GetUserId Integer uid, @RequestBody Classification newCL) {
         CService.add(TableNameUtil.getTECLName(uid), newCL);
         return Result.success();
     }
