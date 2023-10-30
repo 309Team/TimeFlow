@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="TimeFlow.mapper.statistic.StatisticMapper">
+
+
+    <select id="listclass" resultType="TimeFlow.pojo.TEClassification">
+        select * from ${tableName}
+    </select>
+
+    <select id="listevent" resultType="TimeFlow.pojo.TimeEvent">
+        select *
+        from ${tableName}
+        where 1 = 1
+          and EXTRACT(YEAR FROM startTime) >= EXTRACT(YEAR FROM #{startTime})
+          and EXTRACT(MONTH FROM startTime) >= EXTRACT(MONTH FROM #{startTime})
+          and EXTRACT(DAY FROM startTime) >= EXTRACT(DAY FROM #{startTime})
+          and EXTRACT(YEAR FROM #{overTime}) >= EXTRACT(YEAR FROM overTime)
+          and EXTRACT(MONTH FROM #{overTime}) >= EXTRACT(MONTH FROM overTime)
+          and EXTRACT(DAY FROM #{overTime}) >= EXTRACT(DAY FROM overTime)
+    </select>
+
+    <select id="findClass" resultType="TimeFlow.pojo.TEClassification">
+        select * from ${midTabName}
+        where id_event = ${eid}
+        and id_class = ${cid}
+    </select>
+
+
+</mapper>

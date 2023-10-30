@@ -27,10 +27,8 @@ public class StatisticController {
 
 	@GetMapping()
 	public Result list(@GetUserId Integer uid, @RequestBody HashMap<String, String> D) {
-
-//		List<ClassStatistic> MEList = STAService.list(TableNameUtil.getTEName(uid),TableNameUtil.getTECLName() D.get("dateSTR"));
-//		return Result.success(MEList);
-	return null;
+		List<ClassStatistic> list = STAService.list(uid,D);
+		return Result.success(list);
 	}
 
 

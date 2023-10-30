@@ -1,16 +1,13 @@
 package TimeFlow.service.interf.statistic;
 
+import TimeFlow.pojo.interact.ClassStatistic;
 import org.springframework.stereotype.Service;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @Author:你的名字
- * @Description:
- * @params:$
- * @return: $
- * @Date: 2023/10/30/11:38
- */
-@Service
+import java.util.HashMap;
+import java.util.List;
+
+
+
 public interface StatisticService {
+	List<ClassStatistic> list(Integer uid, HashMap<String, String> D);
 }
