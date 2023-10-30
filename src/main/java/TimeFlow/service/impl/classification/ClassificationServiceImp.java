@@ -24,7 +24,6 @@ public class ClassificationServiceImp implements ClassificationService {
 		this.classCategoryMapper = classCategoryMapper;
 	}
 
-
 	@Override
     public List<TEClassification> list(String tableName) {
 		return CMapper.list(tableName);

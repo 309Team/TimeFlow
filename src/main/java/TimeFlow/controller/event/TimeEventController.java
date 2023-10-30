@@ -45,7 +45,7 @@ public class TimeEventController {
 
     @DeleteMapping
     public Result delete(@GetUserId Integer uid, @RequestBody HashMap<String, Integer> D) {
-        TEService.delete(TableNameUtil.getTEName(uid), D.get("id"));
+        TEService.delete(uid, D.get("id"));
         return Result.success();
     }
 
@@ -60,7 +60,7 @@ public class TimeEventController {
      * 根据分类查事项
      *
      * @param uid 用户id
-     * @param map "cid":[] 分类id LiSt
+     * @param map "cid":[] 分类id List
      * @return 事项列表
      */
     @GetMapping("/class")
