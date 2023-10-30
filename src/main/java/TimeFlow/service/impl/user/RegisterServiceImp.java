@@ -1,24 +1,26 @@
 package TimeFlow.service.impl.user;
 
 import TimeFlow.mapper.classification.ClassCategoryMapper;
+import TimeFlow.mapper.classification.ClassificationMapper;
 import TimeFlow.mapper.user.RegisterMapper;
 import TimeFlow.pojo.User;
 import TimeFlow.service.interf.user.RegisterService;
 import TimeFlow.util.TableNameUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RegisterServiceImp implements RegisterService {
 
-    final
-    RegisterMapper registerMapper;
-    final
-    ClassCategoryMapper classCategoryMapper;
+    private final RegisterMapper registerMapper;
+    private final ClassCategoryMapper classCategoryMapper;
+    private final ClassificationMapper classificationMapper;
 
-    public RegisterServiceImp(RegisterMapper registerMapper, ClassCategoryMapper classCategoryMapper) {
+    public RegisterServiceImp(RegisterMapper registerMapper, ClassCategoryMapper classCategoryMapper, ClassificationMapper classificationMapper) {
         this.registerMapper = registerMapper;
         this.classCategoryMapper = classCategoryMapper;
+        this.classificationMapper = classificationMapper;
     }
 
     @Override
@@ -47,6 +49,7 @@ public class RegisterServiceImp implements RegisterService {
             registerMapper.createLETable(TableNameUtil.getLEName(user.getUid()));
             registerMapper.createTETable(TableNameUtil.getTEName(user.getUid()));
             classCategoryMapper.createTable(TableNameUtil.getMidTabName(user.getUid()));
+            classificationMapper.createTable(TableNameUtil.getTECLName(user.getUid()));
         }
 
         return 0;

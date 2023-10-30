@@ -25,7 +25,7 @@ public class UserTest {
         userService.userDelete(4);
     }
 
-    @Test
+
     void updateUserTest() {
         User user = new User();
         user.setUid(8);

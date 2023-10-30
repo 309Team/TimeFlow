@@ -1,5 +1,6 @@
 package TimeFlow.service.impl.statistic;
 
+import TimeFlow.service.interf.statistic.StatisticService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,5 +14,5 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class StatisticServiceImp {
+public class StatisticServiceImp implements StatisticService {
 }

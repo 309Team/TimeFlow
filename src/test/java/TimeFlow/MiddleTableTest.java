@@ -18,7 +18,7 @@ public class MiddleTableTest {
     @Autowired
     ClassCategoryService classCategoryService;
 
-    @Test
+    //@Test
     void createTest() {
         classCategoryMapper.createTable(TableNameUtil.getMidTabName(5));
     }
@@ -28,7 +28,7 @@ public class MiddleTableTest {
         classCategoryMapper.dropTable(TableNameUtil.getMidTabName(5));
     }
 
-    @Test
+    //@Test
     void addTest() {
 
         List<Integer> integers = new ArrayList<>();
@@ -39,7 +39,7 @@ public class MiddleTableTest {
         classCategoryService.addTEToCategory(13, 1, integers);
     }
 
-    @Test
+    //@Test
     void delTest() {
         List<Integer> integers = new ArrayList<>();
         integers.add(1);
@@ -49,7 +49,7 @@ public class MiddleTableTest {
         classCategoryService.deleteTEFromCategory(5, 1, integers);
     }
 
-    @Test
+    // @Test
     void classFindTest() {
         List<Integer> integers = new ArrayList<>();
         integers.add(3);

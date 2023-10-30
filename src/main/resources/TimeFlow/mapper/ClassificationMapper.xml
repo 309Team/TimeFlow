@@ -9,9 +9,20 @@
         values
             (#{newCL.id},#{newCL.name},#{newCL.text})
     </insert>
+    <insert id="createTable">
+        create table if not exists ${tableName}
+        (
+            id   int unsigned primary key auto_increment comment '分类ID',
+            name varchar(10) not null unique comment '分类名',
+            text varchar(400) comment '分类注释'
+        ) comment '分类表';
+    </insert>
     <delete id="delete">
         DELETE FROM ${tableName}
         WHERE id = #{id}
+    </delete>
+    <delete id="dropTable">
+        drop table ${tableName}
     </delete>
 
 
