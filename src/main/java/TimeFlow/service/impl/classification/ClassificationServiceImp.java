@@ -5,8 +5,10 @@ import TimeFlow.mapper.classification.ClassCategoryMapper;
 import TimeFlow.mapper.classification.ClassificationMapper;
 import TimeFlow.pojo.TEClassification;
 import TimeFlow.service.interf.classification.ClassificationService;
+import TimeFlow.util.TableNameUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -34,7 +36,11 @@ public class ClassificationServiceImp implements ClassificationService {
 	}
 
 	@Override
-	public void delete(String tableName, Integer id) {
-		CMapper.delete(tableName, id);
+	@Transactional
+	public void delete(Integer uid, Integer cid) {
+		CMapper.delete(TableNameUtil.getTECLName(uid), cid);
+
+		// 把中间表的关系删除
+		classCategoryMapper.deleteByClassId(TableNameUtil.getMidTabName(uid), cid);
 	}
 }

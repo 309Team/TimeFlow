@@ -11,6 +11,5 @@ public interface ClassificationService {
 
     void add(String tableName, TEClassification newCL);
 
-
-	void delete(String tableName, Integer id);
+    void delete(Integer uid, Integer cid);
 }

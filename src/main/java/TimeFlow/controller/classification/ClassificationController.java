@@ -4,9 +4,11 @@ package TimeFlow.controller.classification;
 import TimeFlow.config.GetUserId;
 import TimeFlow.pojo.interact.Result;
 import TimeFlow.pojo.TEClassification;
+import TimeFlow.service.interf.classification.ClassCategoryService;
 import TimeFlow.service.interf.classification.ClassificationService;
 import TimeFlow.util.TableNameUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -35,7 +37,7 @@ public class ClassificationController {
 
     @DeleteMapping
     public Result delete(@GetUserId Integer uid, @RequestBody HashMap<String, Integer> D) {
-        CService.delete(TableNameUtil.getTECLName(uid), D.get("id"));
+        CService.delete(uid, D.get("id"));
         return Result.success();
     }
 
