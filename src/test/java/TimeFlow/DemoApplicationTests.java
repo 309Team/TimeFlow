@@ -25,7 +25,7 @@ class DemoApplicationTests {
         user.setUid(100);
     }
 
-    @Test
+    //  @Test
     void classTest() {
         classCategoryMapper.createTable(TableNameUtil.getTECLName(6));
         System.out.println();

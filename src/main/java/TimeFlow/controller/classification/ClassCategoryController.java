@@ -29,7 +29,6 @@ public class ClassCategoryController {
         this.classCategoryService = classCategoryService;
     }
 
-
     /**
      * 从类中添加事项
      *

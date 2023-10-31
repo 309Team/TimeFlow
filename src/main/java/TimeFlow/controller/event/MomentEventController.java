@@ -17,6 +17,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/event/me")
+@CrossOrigin
 public class MomentEventController {
 
 	@Autowired
