@@ -17,7 +17,7 @@ public class LoginInterceptor extends InterceptorRegistry implements HandlerInte
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 获取请求头中的token
-        String token = request.getHeader("token");
+        String token = request.getHeader("Authorization");
 
         // 判断是否有token 没有则为未登录
         if (!StringUtils.hasText(token)) {

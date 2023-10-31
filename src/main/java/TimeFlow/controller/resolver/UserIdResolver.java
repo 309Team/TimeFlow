@@ -24,7 +24,7 @@ public class UserIdResolver implements HandlerMethodArgumentResolver {
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
 
         // 获取token
-        String token = webRequest.getHeader("token");
+        String token = webRequest.getHeader("Authorization");
 
         // 在有token的情况下解析uid
         if (StringUtils.hasText(token)) {
