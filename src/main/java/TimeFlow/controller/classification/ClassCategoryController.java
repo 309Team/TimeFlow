@@ -20,7 +20,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/grouping")
 public class ClassCategoryController {
-    //TODO
 
     final
     ClassCategoryService classCategoryService;

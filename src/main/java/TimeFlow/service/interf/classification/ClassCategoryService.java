@@ -33,7 +33,6 @@ public interface ClassCategoryService {
 //---------------------------------------------------------------
     void addToClass(String tableName, Grouping group);
 
-
     void deleteFromClass(String tableName, Grouping group);
 
     List<Classification> listCLass(String midTabName, String TECLTabName, Integer id);
