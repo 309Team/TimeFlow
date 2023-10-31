@@ -67,8 +67,9 @@
     <select id="listCLass" resultType="TimeFlow.pojo.Classification">
         select *
         from ${TECLTabName}
-        inner join ${midTabName}
-        on ${TECLTabName}.id = ${midTabName}.id_class
+                 inner join ${midTabName} on 1 = 1
+            and ${id} = ${midTabName}.id_event
+            and ${midTabName}.id_class = ${TECLTabName}.id
     </select>
 
 
