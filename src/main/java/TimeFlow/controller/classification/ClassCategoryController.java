@@ -17,6 +17,7 @@ import java.util.HashMap;
  */
 @RestController
 @RequestMapping("/grouping")
+@CrossOrigin
 public class ClassCategoryController {
 
     final

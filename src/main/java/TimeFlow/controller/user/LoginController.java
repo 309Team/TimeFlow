@@ -31,7 +31,7 @@ public class LoginController {
             String token = JwtUtil.createJWT(loginUser.getUid().toString(), null);
 
             HashMap<String, String> map = new HashMap<>();
-            map.put("Authorization", token);
+            map.put("token", token);
             return Result.success(map);
         } else {
             // 密码错误

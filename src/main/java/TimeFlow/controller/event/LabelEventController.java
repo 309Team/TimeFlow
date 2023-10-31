@@ -13,8 +13,8 @@ import java.util.HashMap;
 
 
 @RestController
-@CrossOrigin
 @RequestMapping("/event/le")
+@CrossOrigin
 public class LabelEventController {
 
     private final LabelEventService labelEventService;
