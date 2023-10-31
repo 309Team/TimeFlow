@@ -848,7 +848,7 @@ website/event/le/2
 
 #### 请求路径
 
-* /class
+* /grouping/class
 
 #### 请求参数
 
@@ -885,7 +885,7 @@ website/event/le/2
 
 #### 请求路径
 
-* /class
+* /grouping/class
 
 #### 请求参数
 
@@ -922,7 +922,7 @@ website/event/le/2
 
 #### 请求路径
 
-* /event
+* /grouping/event
 
 #### 请求参数
 
@@ -959,7 +959,7 @@ website/event/le/2
 
 #### 请求路径
 
-* /event
+* /grouping/event
 
 #### 请求参数
 
@@ -996,7 +996,7 @@ website/event/le/2
 
 #### 请求路径
 
-* /event
+* /grouping/event
 
 #### 请求参数
 
@@ -1005,7 +1005,7 @@ website/event/le/2
 
 ``` json
 {
-	"id": 1,
+	"id": 1
 }
 ```
 
@@ -1016,7 +1016,94 @@ website/event/le/2
 * data(返回数据)：分类列表
 
 ```json
-
+{
+    "code": 0,
+    "msg": "Success",
+    "data": [
+        {
+            "id": 1,
+            "name": "CL_A",
+            "text": null
+        },
+        {
+            "id": 2,
+            "name": "CL_B",
+            "text": null
+        }
+    ]
+}
 ```
 
+
 # 统计
+### 统计某个时间段内的各个分类占用时间
+
+#### 请求方式
+
+* GET
+
+#### 请求路径
+
+* /sta
+
+#### 请求参数
+
+* 参数存在JSON请求体中
+* id: 事项的id
+
+``` json
+{
+	"startTime":"2023-10-21",
+	"overTime":"2023-10-21"
+}
+```
+
+#### 响应数据
+
+* code(状态码)：0(成功)，1(失败)
+* msg(返回信息)：提示信息
+* data(返回数据)：分类列表
+
+```json
+{
+    "code": 0,
+    "msg": "Success",
+    "data": [
+        {
+            "duration": 240,
+            "cls": {
+                "id": 1,
+                "name": "CL_A",
+                "text": null
+            }
+        },
+        {
+            "duration": 150,
+            "cls": {
+                "id": 2,
+                "name": "CL_B",
+                "text": null
+            }
+        },
+        {
+            "duration": 30,
+            "cls": {
+                "id": 3,
+                "name": "CL_C",
+                "text": null
+            }
+        },
+        {
+            "duration": 0,
+            "cls": {
+                "id": 4,
+                "name": "CL_D",
+                "text": null
+            }
+        }
+    ]
+}
+```
+
+
+
