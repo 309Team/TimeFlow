@@ -9,7 +9,7 @@ create table user(
 -- 时段事项建表 并插入测试数据
 create table 1_time_event (
 	id int unsigned primary key auto_increment comment '事项ID',
-	name varchar(10) not null unique comment '事项名',
+	name varchar(10) not null comment '事项名',
 	startTime datetime not null comment '开始时间',
 	overTime datetime not null comment '结束时间',
 	setInViewPage tinyint not null comment '是否纳入日视图统计（无痕事件）',
@@ -21,7 +21,7 @@ create table 1_time_event (
 -- 时刻事项建表 并插入测试数据
 create table 1_moment_event (
 	id int unsigned primary key auto_increment comment '事项ID',
-	name varchar(10) not null unique comment '事项名',
+	name varchar(10) not null comment '事项名',
 	deadline datetime not null comment '截截止时间',
 	setInViewPage tinyint not null comment '是否纳入日视图统计（无痕事件）',
 	text varchar(400) comment '文本内容（事项注释）',
@@ -32,7 +32,7 @@ create table 1_moment_event (
 -- 标签事项建表 并插入测试数据
 create table 1_label_event (
 	id int unsigned primary key auto_increment comment '事项ID',
-	name varchar(10) not null unique comment '事项名',
+	name varchar(10) not null comment '事项名',
 	attachdate date not null comment '附着时间',
 	setInViewPage tinyint not null comment '是否纳入日视图统计（无痕事件）',
 	text varchar(400) comment '文本内容（事项注释）',
