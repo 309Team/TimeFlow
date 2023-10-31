@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
-import java.util.List;
-
 /**
  * 中间表操作实体类
  * 根路径 ”/middle“
@@ -44,7 +42,7 @@ public class ClassCategoryController {
     /**
      * 从类中删除事项
      *
-     * @param uid            用户id
+     * @param uid      用户id
      * @param grouping 删除类的id以及事项id列表
      * @return 是否成功
      */
@@ -57,22 +55,22 @@ public class ClassCategoryController {
 
 //-----------------------------------------------------------------------------------------------------
 
-	@PostMapping("/event")
-	public Result addToClass(@GetUserId Integer uid, @RequestBody Grouping group) {
-		classCategoryService.addToClass(TableNameUtil.getMidTabName(uid), group);
-		return Result.success();
-	}
+    @PostMapping("/event")
+    public Result addToClass(@GetUserId Integer uid, @RequestBody Grouping group) {
+        classCategoryService.addToClass(TableNameUtil.getMidTabName(uid), group);
+        return Result.success();
+    }
 
-	@DeleteMapping("/event")
-	public Result deleteFromClass(@GetUserId Integer uid, @RequestBody Grouping group) {
-		classCategoryService.deleteFromClass(TableNameUtil.getMidTabName(uid), group);
-		return Result.success();
-	}
+    @DeleteMapping("/event")
+    public Result deleteFromClass(@GetUserId Integer uid, @RequestBody Grouping group) {
+        classCategoryService.deleteFromClass(TableNameUtil.getMidTabName(uid), group);
+        return Result.success();
+    }
 
-	@GetMapping("/event")
-	public Result listCLass(@GetUserId Integer uid, @RequestBody HashMap<String, Integer> m) {
-		return Result.success(classCategoryService.listCLass(TableNameUtil.getMidTabName(uid),TableNameUtil.getTECLName(uid), m.get("id")));
-	}
+    @GetMapping("/event")
+    public Result listCLass(@GetUserId Integer uid, @RequestBody HashMap<String, Integer> m) {
+        return Result.success(classCategoryService.listCLass(TableNameUtil.getMidTabName(uid), TableNameUtil.getTECLName(uid), m.get("id")));
+    }
 
 
 }
