@@ -14,6 +14,7 @@ import java.util.HashMap;
 @Slf4j
 @RestController
 @RequestMapping("/cls")
+@CrossOrigin
 public class ClassificationController {
 
     private final ClassificationService CService;

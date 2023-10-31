@@ -19,6 +19,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/event/te")
 @Controller
+@CrossOrigin
 public class TimeEventController {
 
     private final TimeEventService TEService;
