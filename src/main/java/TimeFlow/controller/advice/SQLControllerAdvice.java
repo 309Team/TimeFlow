@@ -10,7 +10,7 @@ import java.sql.SQLException;
 @RestControllerAdvice
 public class SQLControllerAdvice {
 
-    @ExceptionHandler({SQLException.class, SQLDataException.class})
+//    @ExceptionHandler({SQLException.class, SQLDataException.class})
     public Result SQLExceptionHandler(Exception e) {
         return Result.error(3, "数据处理失败");
     }

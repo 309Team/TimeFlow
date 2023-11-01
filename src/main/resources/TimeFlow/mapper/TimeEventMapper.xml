@@ -8,9 +8,9 @@
           and   EXTRACT(YEAR FROM #{date}) >= EXTRACT(YEAR FROM startTime)
           and  EXTRACT(MONTH FROM #{date}) >= EXTRACT(MONTH FROM startTime)
           and EXTRACT(DAY FROM #{date})  >=  EXTRACT(DAY FROM startTime)
-          and EXTRACT(YEAR FROM overtTime) >= EXTRACT(YEAR FROM #{date})
-          and EXTRACT(MONTH FROM overtTime) >= EXTRACT(MONTH FROM #{date})
-          and EXTRACT(DAY FROM overtTime) >= EXTRACT(DAY FROM #{date})
+          and EXTRACT(YEAR FROM overTime) >= EXTRACT(YEAR FROM #{date})
+          and EXTRACT(MONTH FROM overTime) >= EXTRACT(MONTH FROM #{date})
+          and EXTRACT(DAY FROM overTime) >= EXTRACT(DAY FROM #{date})
     </select>
     <select id="listById" resultType="TimeFlow.pojo.TimeEvent">
         SELECT * FROM ${tableName} WHERE id IN
