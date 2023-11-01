@@ -2,10 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="TimeFlow.mapper.event.TimeEventMapper">
     <select id="list" resultType="TimeFlow.pojo.TimeEvent">
-        SELECT * FROM ${tableName} WHERE
-            EXTRACT(YEAR FROM startTime) = EXTRACT(YEAR FROM #{date}) and
-            EXTRACT(MONTH FROM startTime) = EXTRACT(MONTH FROM #{date}) and
-            EXTRACT(DAY FROM startTime) = EXTRACT(DAY FROM #{date})
+        SELECT *
+        FROM ${tableName}
+        WHERE 1 = 1
+          and   EXTRACT(YEAR FROM #{date}) >= EXTRACT(YEAR FROM startTime)
+          and  EXTRACT(MONTH FROM #{date}) >= EXTRACT(MONTH FROM startTime)
+          and EXTRACT(DAY FROM #{date})  >=  EXTRACT(DAY FROM startTime)
+          and EXTRACT(YEAR FROM overtTime) >= EXTRACT(YEAR FROM #{date})
+          and EXTRACT(MONTH FROM overtTime) >= EXTRACT(MONTH FROM #{date})
+          and EXTRACT(DAY FROM overtTime) >= EXTRACT(DAY FROM #{date})
     </select>
     <select id="listById" resultType="TimeFlow.pojo.TimeEvent">
         SELECT * FROM ${tableName} WHERE id IN
