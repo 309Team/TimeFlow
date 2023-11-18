@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class LoginControllerAdvice {
 
-
     @ExceptionHandler({LoginException.class})
     public Result handlerLoginException (LoginException e) {
-        return Result.error(e.getMessage());
+        return Result.error(4, e.getMessage());
     }
 }

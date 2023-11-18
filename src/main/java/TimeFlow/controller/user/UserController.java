@@ -7,6 +7,8 @@ import TimeFlow.service.interf.user.UserService;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+
 @RestController
 @RequestMapping("/user")
 @CrossOrigin
@@ -67,6 +69,29 @@ public class UserController {
             return Result.success();
         } else {
             return Result.error("修改失败，用户名重复");
+        }
+    }
+
+    @PatchMapping("/pw")
+    public Result userUpdatePassWord(@GetUserId Integer uid, @RequestBody HashMap<String, String> passWord) {
+        if (uid == null)
+            return Result.error("修改失败：无效请求（请求uid为空）");
+
+        // 密码不正确
+        User user = userService.getUserInfo(uid);
+        if (user == null || !user.getPassword().equals(passWord.get("oldPassWord")))
+            return Result.error("修改失败： 原密码输入错误");
+
+        if (!StringUtils.hasText(passWord.get("newPassWord")))
+            return Result.error("修改失败： 新密码为空");
+
+        user.setPassword(passWord.get("newPassWord"));
+
+        // 执行更新
+        if (userService.updateUserPassWord(user)) {
+            return Result.success();
+        } else {
+            return Result.error("修改失败: 未知原因");
         }
     }
 

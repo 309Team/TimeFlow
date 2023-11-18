@@ -77,6 +77,16 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    @Transactional
+    public Boolean updateUserPassWord(User user) {
+        if (user == null)
+            return false;
+
+        userMapper.updateUserData(user);
+
+        return true;
+    }
+    @Override
     public User getUserInfo(Integer uid) {
         return userMapper.findUserByUid(uid);
     }

@@ -11,4 +11,6 @@ public interface UserService {
     Boolean userUpdate(User user);
 
     User getUserInfo(Integer uid);
+
+    Boolean updateUserPassWord(User user);
 }
