@@ -69,4 +69,11 @@ public class UserController {
             return Result.error("修改失败，用户名重复");
         }
     }
+
+    @GetMapping()
+    public Result getUserInfo(@GetUserId Integer uid) {
+        User userInfo = userService.getUserInfo(uid);
+
+        return userInfo == null ? Result.error("无该用户！") : Result.success(userInfo);
+    }
 }

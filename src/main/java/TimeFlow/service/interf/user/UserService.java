@@ -9,4 +9,6 @@ public interface UserService {
 
     // 更新信息服务
     Boolean userUpdate(User user);
+
+    User getUserInfo(Integer uid);
 }

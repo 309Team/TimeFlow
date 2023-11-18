@@ -75,4 +75,9 @@ public class UserServiceImp implements UserService {
 
         return true;
     }
+
+    @Override
+    public User getUserInfo(Integer uid) {
+        return userMapper.findUserByUid(uid);
+    }
 }
