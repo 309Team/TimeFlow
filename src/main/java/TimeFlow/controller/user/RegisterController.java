@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 @RestController
 @CrossOrigin
 public class RegisterController {
@@ -20,8 +23,8 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-
     public Result register(@RequestBody User user) {
+
         // 请求在用户表中添加
         Integer code = registerService.userRegister(user);
 
