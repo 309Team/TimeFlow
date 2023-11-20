@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,7 +24,6 @@ public class MomentEventController {
 
 	@Autowired
 	private MomentEventService MEService;
-
 
 	@GetMapping()
 	public Result list(@GetUserId Integer uid, @RequestBody HashMap<String, String> D ) {
@@ -50,7 +51,14 @@ public class MomentEventController {
 		return Result.success();
 	}
 
+	@GetMapping("/month/{date}")
+	public Result getMomentLabelEvent(@GetUserId Integer uid, @PathVariable String date) {
+		// 对前端日期进行转换为LocalDate
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate localDate = LocalDate.parse(date, fmt);
 
-
+		HashMap<String, Integer> result = MEService.CountMomentEventByMonth(uid, localDate);
+		return Result.success(result);
+	}
 }
 

@@ -60,4 +60,14 @@ public class LabelEventController {
         return labelEventService.labelEventUpdate(uid, labelEvent) == 0 ?
                 Result.error("修改失败") : Result.success();
     }
+
+    @GetMapping("/month/{date}")
+    public Result getMonthLabelEvent(@GetUserId Integer uid, @PathVariable String date) {
+        // 对前端日期进行转换为LocalDate
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(date, fmt);
+
+        HashMap<String, Integer> result = labelEventService.CountLabelEventByMonth(uid, localDate);
+        return Result.success(result);
+    }
 }
