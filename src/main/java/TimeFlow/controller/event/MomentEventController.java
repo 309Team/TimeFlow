@@ -3,6 +3,7 @@ package TimeFlow.controller.event;
 
 import TimeFlow.config.GetUserId;
 import TimeFlow.pojo.MomentEvent;
+import TimeFlow.pojo.TimeEvent;
 import TimeFlow.pojo.interact.Grouping;
 import TimeFlow.pojo.interact.Result;
 import TimeFlow.service.interf.event.MomentEventService;
@@ -11,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,11 +26,17 @@ public class MomentEventController {
 	private MomentEventService MEService;
 
 
-	@GetMapping()
-	public Result list(@GetUserId Integer uid, @RequestBody HashMap<String, String> D ) {
+	@GetMapping("/{dateSTR}")
+	public Result list(@GetUserId Integer uid, @PathVariable("dateSTR") String dateSTR) {
 //		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //		LocalDate date = LocalDate.parse(D.get("dateSTR"), fmt);
-		List<MomentEvent> MEList = MEService.list(TableNameUtil.getMEName(uid), D.get("dateSTR"));
+		List<MomentEvent> MEList = MEService.list(TableNameUtil.getMEName(uid), dateSTR);
+		MEList.sort(new Comparator<MomentEvent>() {
+			@Override
+			public int compare(MomentEvent o1, MomentEvent o2) {
+				return o1.getDeadline().compareTo(o2.getDeadline());
+			}
+		});
 		return Result.success(MEList);
 	}
 
