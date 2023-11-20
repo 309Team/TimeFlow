@@ -1,8 +1,8 @@
 package TimeFlow.controller.user;
 
 import TimeFlow.config.GetUserId;
-import TimeFlow.pojo.interact.Result;
 import TimeFlow.pojo.User;
+import TimeFlow.pojo.interact.Result;
 import TimeFlow.service.interf.user.UserService;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -26,12 +26,21 @@ public class UserController {
      * @param uid 从token解析的uid
      * @return 删除结果
      */
-    @DeleteMapping()
-    public Result userDelete(@GetUserId Integer uid) {
+    @PostMapping()
+    public Result userDelete(@GetUserId Integer uid, @RequestBody HashMap<String, String> passWord) {
 
         // 判断uid是否为空
         if (uid == null)
             return Result.error("无效登录（请求uid为空）");
+
+        User userInfo = userService.getUserInfo(uid);
+
+        if (userInfo == null)
+            return Result.error("找不到该用户!");
+
+        if (!passWord.get("passWord").equals(userInfo.getPassword())) {
+            return Result.error("密码错误");
+        }
 
         // 删除用户是否成功
         if (userService.userDelete(uid)) {
@@ -42,6 +51,30 @@ public class UserController {
         }
     }
 
+    /**
+     * 验证用户密码是否正确（常用于敏感操作）
+     *
+     * @param uid      用户id
+     * @param passWord 用户输入密码
+     * @return 是否正确
+     */
+    @PostMapping("/pw")
+    public Result verifyPassword(@GetUserId Integer uid, @RequestBody HashMap<String, String> passWord) {
+        // 判断uid是否为空
+        if (uid == null)
+            return Result.error("无效登录（请求uid为空）");
+
+        User userInfo = userService.getUserInfo(uid);
+
+        if (userInfo == null)
+            return Result.error("找不到该用户!");
+
+        if (!userInfo.getPassword().equals(passWord.get("password"))) {
+            return Result.error("密码错误");
+        }
+
+        return Result.success();
+    }
     /**
      * 用户信息修改方法
      *
@@ -98,6 +131,8 @@ public class UserController {
     @GetMapping()
     public Result getUserInfo(@GetUserId Integer uid) {
         User userInfo = userService.getUserInfo(uid);
+        if (userInfo != null)
+            userInfo.setPassword(null);
 
         return userInfo == null ? Result.error("无该用户！") : Result.success(userInfo);
     }

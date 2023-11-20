@@ -21,5 +21,5 @@ public interface MomentEventService {
 
 	void update(String tableName, MomentEvent newME);
 
-
+	HashMap<String, Integer> CountMomentEventByMonth(Integer uid, LocalDate date);
 }

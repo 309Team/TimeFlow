@@ -18,4 +18,6 @@ public interface LabelEventMapper {
     long delete(@Param("tableName") String tableName, @Param("eid") Integer eid);
 
     long update(@Param("tableName") String tableName, @Param("event") LabelEvent labelEvent);
+
+    List<LabelEvent> CountLabelEventByMonth(@Param("date") LocalDate date, @Param("tableName") String tableName);
 }

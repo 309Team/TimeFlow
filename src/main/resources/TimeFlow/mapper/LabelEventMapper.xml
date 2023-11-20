@@ -43,4 +43,9 @@
         FROM ${tableName}
         WHERE to_days(attachdate) = to_days(#{date})
     </select>
+    <select id="CountLabelEventByMonth" resultType="TimeFlow.pojo.LabelEvent">
+        SELECT *
+        FROM ${tableName}
+        WHERE DATE_FORMAT(attachdate, '%Y-%m') = DATE_FORMAT(#{date}, '%Y-%m')
+    </select>
 </mapper>

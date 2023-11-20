@@ -10,6 +10,12 @@
             EXTRACT(DAY FROM deadline) = EXTRACT(DAY FROM #{date} )
     </select>
 
+    <select id="CountMomentEventByMonth" resultType="TimeFlow.pojo.MomentEvent">
+        SELECT *
+        FROM ${tableName}
+        WHERE DATE_FORMAT(deadline, '%Y-%m') = DATE_FORMAT(#{date}, '%Y-%m')
+    </select>
+
     <insert id="add">
         INSERT INTO ${tableName}
             (id,name,deadline,

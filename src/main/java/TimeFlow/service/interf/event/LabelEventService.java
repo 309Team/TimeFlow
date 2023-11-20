@@ -4,7 +4,7 @@ package TimeFlow.service.interf.event;
 import TimeFlow.pojo.LabelEvent;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 
 public interface LabelEventService {
@@ -17,4 +17,6 @@ public interface LabelEventService {
     long labelEventDelete(Integer uid, Integer eid);
 
     long labelEventUpdate(Integer uid, LabelEvent labelEvent);
+
+    HashMap<String, Integer> CountLabelEventByMonth(Integer uid, LocalDate date);
 }
