@@ -30,9 +30,8 @@ public class UserIdResolver implements HandlerMethodArgumentResolver {
         if (StringUtils.hasText(token)) {
 
             DecodedJWT decoded = JwtUtil.getToken(token);
-            Integer uid = Integer.valueOf(decoded.getClaim("userId").asString());
 
-            return uid;
+            return Integer.valueOf(decoded.getClaim("userId").asString());
         }
 
         return null; // 没有token，为空

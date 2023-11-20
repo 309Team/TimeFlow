@@ -17,7 +17,7 @@ import java.util.Date;
 public class JwtUtil {
 
     //有效期为
-    public static final Long JWT_TTL = 60 * 60 * 1000L;// 60 * 60 *1000  一个小时
+    public static final Long JWT_TTL = 6 * 60 * 60 * 1000L;// 60 * 60 *1000  一个小时
     //设置秘钥明文
     public static String JWT_KEY = "TimeFlow";
 
