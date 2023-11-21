@@ -40,10 +40,30 @@ public class MomentEventServiceImp implements MomentEventService {
     }
 
     @Override
-    public HashMap<String, Integer> CountMomentEventByMonth(Integer uid, LocalDate date) {
-        List<MomentEvent> momentEvents = MEMapper.CountMomentEventByMonth(date, TableNameUtil.getMEName(uid));
+    public HashMap<String, Integer> countMomentEventByMonth(Integer uid, LocalDate date) {
+        List<MomentEvent> momentEvents = MEMapper.countMomentEventByMonth(date, TableNameUtil.getMEName(uid));
 
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String localDateStr = date.format(fmt);
+
+        HashMap<String, Integer> result = new HashMap<>();
+        for (MomentEvent event : momentEvents) {
+            String format = event.getDeadline().format(fmt);
+            if (result.containsKey(format)) {
+                result.put(format, result.get(format) + 1);
+            } else {
+                result.put(format, 1);
+            }
+        }
+
+        return result;
+    }
+
+    @Override
+    public HashMap<String, Integer> countMomentEventByYear(Integer uid, LocalDate date) {
+        List<MomentEvent> momentEvents = MEMapper.countMomentEventByYear(date, TableNameUtil.getMEName(uid));
+
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("MM");
         String localDateStr = date.format(fmt);
 
         HashMap<String, Integer> result = new HashMap<>();

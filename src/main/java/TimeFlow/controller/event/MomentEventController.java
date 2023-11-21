@@ -3,8 +3,6 @@ package TimeFlow.controller.event;
 
 import TimeFlow.config.GetUserId;
 import TimeFlow.pojo.MomentEvent;
-import TimeFlow.pojo.TimeEvent;
-import TimeFlow.pojo.interact.Grouping;
 import TimeFlow.pojo.interact.Result;
 import TimeFlow.service.interf.event.MomentEventService;
 import TimeFlow.util.TableNameUtil;
@@ -61,12 +59,22 @@ public class MomentEventController {
 	}
 
 	@GetMapping("/month/{date}")
-	public Result getMomentLabelEvent(@GetUserId Integer uid, @PathVariable String date) {
+	public Result getMonthMomentEvent(@GetUserId Integer uid, @PathVariable String date) {
 		// 对前端日期进行转换为LocalDate
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate localDate = LocalDate.parse(date, fmt);
 
-		HashMap<String, Integer> result = MEService.CountMomentEventByMonth(uid, localDate);
+		HashMap<String, Integer> result = MEService.countMomentEventByMonth(uid, localDate);
+		return Result.success(result);
+	}
+
+	@GetMapping("/year/{date}")
+	public Result getYearMomentEvent(@GetUserId Integer uid, @PathVariable String date) {
+		// 对前端日期进行转换为LocalDate
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate localDate = LocalDate.parse(date, fmt);
+
+		HashMap<String, Integer> result = MEService.countMomentEventByYear(uid, localDate);
 		return Result.success(result);
 	}
 }

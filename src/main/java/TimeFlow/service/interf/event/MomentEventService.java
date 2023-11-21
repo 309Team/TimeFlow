@@ -2,7 +2,6 @@ package TimeFlow.service.interf.event;
 
 
 import TimeFlow.pojo.MomentEvent;
-import TimeFlow.pojo.interact.Grouping;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -21,5 +20,7 @@ public interface MomentEventService {
 
 	void update(String tableName, MomentEvent newME);
 
-	HashMap<String, Integer> CountMomentEventByMonth(Integer uid, LocalDate date);
+	HashMap<String, Integer> countMomentEventByMonth(Integer uid, LocalDate date);
+
+	HashMap<String, Integer> countMomentEventByYear(Integer uid, LocalDate date);
 }

@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    username: timeflow #???
+    url: jdbc:mysql://polister.cn:3306/timeflow
+    password: timeflow309 #??
+    driver-class-name: com.mysql.cj.jdbc.Driver
