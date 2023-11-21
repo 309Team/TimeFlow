@@ -52,9 +52,9 @@ public class TimeEventController {
 		return Result.success();
 	}
 
-	@DeleteMapping
-	public Result delete(@GetUserId Integer uid, @RequestBody HashMap<String, Integer> D) {
-		TEService.delete(uid, D.get("id"));
+	@DeleteMapping("/{eid}")
+	public Result delete(@GetUserId Integer uid, @PathVariable Integer eid) {
+		TEService.delete(uid, eid);
 		return Result.success();
 	}
 

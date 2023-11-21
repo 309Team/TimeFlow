@@ -34,9 +34,9 @@ public class ClassificationController {
         return Result.success();
     }
 
-    @DeleteMapping
-    public Result delete(@GetUserId Integer uid, @RequestBody HashMap<String, Integer> D) {
-        CService.delete(uid, D.get("id"));
+    @DeleteMapping("/{id}")
+    public Result delete(@GetUserId Integer uid, @PathVariable Integer id) {
+        CService.delete(uid, id);
         return Result.success();
     }
 
