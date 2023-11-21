@@ -18,5 +18,7 @@ public interface LabelEventService {
 
     long labelEventUpdate(Integer uid, LabelEvent labelEvent);
 
-    HashMap<String, Integer> CountLabelEventByMonth(Integer uid, LocalDate date);
+    HashMap<String, Integer> countLabelEventByMonth(Integer uid, LocalDate date);
+
+    HashMap<String, Integer> countLabelEventByYear(Integer uid, LocalDate date);
 }

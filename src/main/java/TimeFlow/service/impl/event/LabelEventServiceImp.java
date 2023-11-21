@@ -47,10 +47,31 @@ public class LabelEventServiceImp implements LabelEventService {
     }
 
     @Override
-    public HashMap<String, Integer> CountLabelEventByMonth(Integer uid, LocalDate date) {
-        List<LabelEvent> labelEvents = labelEventMapper.CountLabelEventByMonth(date, TableNameUtil.getLEName(uid));
+    public HashMap<String, Integer> countLabelEventByMonth(Integer uid, LocalDate date) {
+        List<LabelEvent> labelEvents = labelEventMapper.countLabelEventByMonth(date, TableNameUtil.getLEName(uid));
 
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String localDateStr = date.format(fmt);
+
+        HashMap<String, Integer> result = new HashMap<>();
+        for (LabelEvent event : labelEvents) {
+
+            String format = event.getAttachDate().format(fmt);
+            if (result.containsKey(format)) {
+                result.put(format, result.get(format) + 1);
+            } else {
+                result.put(format, 1);
+            }
+        }
+
+        return result;
+    }
+
+    @Override
+    public HashMap<String, Integer> countLabelEventByYear(Integer uid, LocalDate date) {
+        List<LabelEvent> labelEvents = labelEventMapper.countLabelEventByYear(date, TableNameUtil.getLEName(uid));
+
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("MM");
         String localDateStr = date.format(fmt);
 
         HashMap<String, Integer> result = new HashMap<>();

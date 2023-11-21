@@ -19,5 +19,7 @@ public interface LabelEventMapper {
 
     long update(@Param("tableName") String tableName, @Param("event") LabelEvent labelEvent);
 
-    List<LabelEvent> CountLabelEventByMonth(@Param("date") LocalDate date, @Param("tableName") String tableName);
+    List<LabelEvent> countLabelEventByMonth(@Param("date") LocalDate date, @Param("tableName") String tableName);
+
+    List<LabelEvent> countLabelEventByYear(@Param("date") LocalDate date, @Param("tableName") String tableName);
 }
