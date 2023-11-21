@@ -46,9 +46,9 @@ public class MomentEventController {
 		return Result.success();
 	}
 
-	@DeleteMapping()
-	public Result delete(@GetUserId Integer uid, @RequestBody HashMap<String,Integer> D){
-		MEService.delete(TableNameUtil.getMEName(uid), D.get("id"));
+	@DeleteMapping("/{eid}")
+	public Result delete(@GetUserId Integer uid, @PathVariable Integer eid){
+		MEService.delete(TableNameUtil.getMEName(uid),eid);
 		return Result.success();
 	}
 
