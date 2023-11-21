@@ -26,4 +26,17 @@
     </select>
 
 
+    <select id="findEvent" resultType="TimeFlow.pojo.TimeEvent">
+        select *
+        from ${tableName}
+        where 1 = 1
+          and EXTRACT(YEAR FROM startTime) >= EXTRACT(YEAR FROM #{startTime})
+          and EXTRACT(MONTH FROM startTime) >= EXTRACT(MONTH FROM #{startTime})
+          and EXTRACT(DAY FROM startTime) >= EXTRACT(DAY FROM #{startTime})
+          and EXTRACT(YEAR FROM #{overTime}) >= EXTRACT(YEAR FROM overTime)
+          and EXTRACT(MONTH FROM #{overTime}) >= EXTRACT(MONTH FROM overTime)
+          and EXTRACT(DAY FROM #{overTime}) >= EXTRACT(DAY FROM overTime)
+    </select>
+
+
 </mapper>
