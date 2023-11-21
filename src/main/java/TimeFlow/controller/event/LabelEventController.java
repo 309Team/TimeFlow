@@ -67,7 +67,17 @@ public class LabelEventController {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate localDate = LocalDate.parse(date, fmt);
 
-        HashMap<String, Integer> result = labelEventService.CountLabelEventByMonth(uid, localDate);
+        HashMap<String, Integer> result = labelEventService.countLabelEventByMonth(uid, localDate);
+        return Result.success(result);
+    }
+
+    @GetMapping("/year/{date}")
+    public Result getYearLabelEvent(@GetUserId Integer uid, @PathVariable String date) {
+        // 对前端日期进行转换为LocalDate
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(date, fmt);
+
+        HashMap<String, Integer> result = labelEventService.countLabelEventByYear(uid, localDate);
         return Result.success(result);
     }
 }
