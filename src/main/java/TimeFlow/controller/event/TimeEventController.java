@@ -85,18 +85,18 @@ public class TimeEventController {
 
 	@GetMapping("/year/{dateSTR}")
 	public Result getmouthnum(@GetUserId Integer uid, @PathVariable("dateSTR") String dateSTR) {
-		HashMap<Integer, Integer> RESULT = new HashMap<>();
+		HashMap<String, Integer> RESULT = new HashMap<>();
 
 		List<TimeEvent> TEList = TEService.getmouthnum(TableNameUtil.getTEName(uid), dateSTR);
 
 
 
 		for (TimeEvent te : TEList) {
-			int MouthValue = te.getStartTime().getMonthValue();
-			if (RESULT.get(MouthValue) == null) {
-				RESULT.put(MouthValue, 1);
+			String MonthValue = String.valueOf(te.getStartTime().getMonthValue());
+			if (RESULT.get(MonthValue) == null) {
+				RESULT.put(MonthValue, 1);
 			} else
-				RESULT.replace(MouthValue, RESULT.get(MouthValue) + 1);
+				RESULT.replace(MonthValue, RESULT.get(MonthValue) + 1);
 		}
 		return Result.success(RESULT);
 	}

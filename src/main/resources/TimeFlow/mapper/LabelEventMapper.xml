@@ -3,9 +3,9 @@
 <mapper namespace="TimeFlow.mapper.event.LabelEventMapper">
     <insert id="insert">
         INSERT INTO ${tableName}
-            (`name`, `attachdate`, `setInViewPage`, `isCompleted`, `text`)
+            (`name`, `attachdate`, `setInViewPage`, `completed`, `text`)
         VALUES (#{event.name}, #{event.attachDate}, #{event.setInViewPage},
-                #{event.isCompleted}, #{event.text})
+                #{event.completed}, #{event.text})
     </insert>
     <update id="update">
         UPDATE ${tableName}
@@ -22,8 +22,8 @@
             <if test="event.text != null">
                 text = #{event.text},
             </if>
-            <if test="event.isCompleted != null">
-                isCompleted = #{event.isCompleted}
+            <if test="event.completed != null">
+                completed = #{event.completed}
             </if>
         </set>
         WHERE id = #{event.id}

@@ -24,10 +24,10 @@
     <insert id="add">
         INSERT INTO ${tableName}
             (id,name,deadline,
-             setInViewPage,text,isCompleted)
+             setInViewPage, text, completed)
         values
             (#{newME.id},#{newME.name},#{newME.deadline},
-             #{newME.setInViewPage},#{newME.text},#{newME.isCompleted})
+             #{newME.setInViewPage}, #{newME.text}, #{newME.completed})
     </insert>
 
     <delete id="delete">
@@ -50,8 +50,8 @@
             <if test="newME.text != null">
                 text = #{newME.text},
             </if>
-            <if test="newME.isCompleted != null">
-                isCompleted = #{newME.isCompleted}
+            <if test="newME.completed != null">
+                completed = #{newME.completed}
             </if>
         </set>
         WHERE id = #{newME.id}

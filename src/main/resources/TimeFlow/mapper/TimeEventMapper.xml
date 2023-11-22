@@ -5,12 +5,12 @@
         SELECT *
         FROM ${tableName}
         WHERE 1 = 1
-          and EXTRACT(YEAR FROM startTime) >= EXTRACT(YEAR FROM #{date})
-          and EXTRACT(MONTH FROM startTime) >= EXTRACT(MONTH FROM #{date})
-          and EXTRACT(DAY FROM startTime) >= EXTRACT(DAY FROM #{date})
-          and EXTRACT(YEAR FROM #{date}) >= EXTRACT(YEAR FROM overTime)
-          and EXTRACT(MONTH FROM #{date}) >= EXTRACT(MONTH FROM overTime)
-          and EXTRACT(DAY FROM #{date}) >= EXTRACT(DAY FROM overTime)
+          and EXTRACT(YEAR FROM #{date}) >= EXTRACT(YEAR FROM startTime)
+          and EXTRACT(MONTH FROM #{date}) >= EXTRACT(MONTH FROM startTime)
+          and EXTRACT(DAY FROM #{date}) >= EXTRACT(DAY FROM startTime)
+          and EXTRACT(YEAR FROM overTime) >= EXTRACT(YEAR FROM #{date})
+          and EXTRACT(MONTH FROM overTime) >= EXTRACT(MONTH FROM #{date})
+          and EXTRACT(DAY FROM overTime) >= EXTRACT(DAY FROM #{date})
     </select>
     <select id="listById" resultType="TimeFlow.pojo.TimeEvent">
         SELECT * FROM ${tableName} WHERE id IN
@@ -35,10 +35,10 @@
     <insert id="add">
         INSERT INTO ${tableName}
         (id,name,startTime, overTime,
-         setInViewPage,text,isCompleted)
+         setInViewPage, text, completed)
         values
             (#{newTE.id},#{newTE.name},#{newTE.startTime},#{newTE.overTime},
-             #{newTE.setInViewPage},#{newTE.text},#{newTE.isCompleted})
+             #{newTE.setInViewPage}, #{newTE.text}, #{newTE.completed})
     </insert>
     <delete id="delete">
         DELETE FROM ${tableName}
@@ -64,7 +64,7 @@
                 text = #{newTE.text},
             </if>
             <if test="newTE.isCompleted != null">
-                isCompleted = #{newTE.isCompleted}
+                completed = #{newTE.completed}
             </if>
         </set>
         WHERE id = #{newTE.id}
