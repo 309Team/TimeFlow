@@ -16,4 +16,9 @@ public interface TimeEventService {
 	void update(String tableName, TimeEvent newTE);
 
     List<TimeEvent> listByClass(Integer uid, List<Integer> cid);
+
+	List<TimeEvent> getdaynum(String tableName, String dateSTR);
+
+	List<TimeEvent> getmouthnum(String teName, String dateSTR);
+
 }

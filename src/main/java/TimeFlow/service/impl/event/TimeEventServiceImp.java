@@ -50,4 +50,14 @@ public class TimeEventServiceImp implements TimeEventService {
 		return TEMapper.listById(TableNameUtil.getTEName(uid), cid);
 	}
 
+	@Override
+	public List<TimeEvent> getdaynum(String tableName, String dateSTR) {
+		return TEMapper.getdaynum(tableName, dateSTR);
+	}
+
+	@Override
+	public List<TimeEvent> getmouthnum(String tableName, String dateSTR) {
+		return TEMapper.getmouthnum(tableName, dateSTR);
+	}
+
 }

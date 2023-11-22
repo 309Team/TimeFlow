@@ -18,4 +18,10 @@ public interface TimeEventMapper {
     void update(String tableName, TimeEvent newTE);
 
     List<TimeEvent> listById(@Param("tableName") String tableName, @Param("eid") List<Integer> eid);
+
+	List<TimeEvent> getdaynum(String tableName, String dateSTR);
+
+	List<TimeEvent> getmouthnum(String tableName, String dateSTR);
+
+
 }

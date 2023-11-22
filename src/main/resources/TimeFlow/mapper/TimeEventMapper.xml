@@ -18,6 +18,19 @@
             #{item}
         </foreach>
     </select>
+    <select id="getdaynum" resultType="TimeFlow.pojo.TimeEvent">
+        SELECT *
+        FROM ${tableName}
+        WHERE 1 = 1
+          and EXTRACT(YEAR FROM startTime) >= EXTRACT(YEAR FROM #{dateSTR})
+          and EXTRACT(MONTH FROM startTime) >= EXTRACT(MONTH FROM #{dateSTR})
+    </select>
+    <select id="getmouthnum" resultType="TimeFlow.pojo.TimeEvent">
+        SELECT *
+        FROM ${tableName}
+        WHERE 1 = 1
+          and EXTRACT(YEAR FROM startTime) >= EXTRACT(YEAR FROM #{dateSTR})
+    </select>
 
     <insert id="add">
         INSERT INTO ${tableName}

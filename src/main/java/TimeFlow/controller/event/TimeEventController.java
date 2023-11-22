@@ -64,6 +64,43 @@ public class TimeEventController {
 		return Result.success();
 	}
 
+	@GetMapping("/month/{dateSTR}")
+	public Result getdaynum(@GetUserId Integer uid, @PathVariable("dateSTR") String dateSTR) {
+		HashMap<String, Integer> RESULT = new HashMap<>();
+
+		List<TimeEvent> TEList = TEService.getdaynum(TableNameUtil.getTEName(uid), dateSTR);
+
+		for (TimeEvent te : TEList) {
+			String MouthSTR = te.getStartTime().getYear() + "-" +
+					te.getStartTime().getMonthValue() + "-" +
+					te.getStartTime().getDayOfMonth();
+			if (RESULT.get(MouthSTR) == null) {
+				RESULT.put(MouthSTR, 1);
+			} else
+				RESULT.replace(MouthSTR, RESULT.get(MouthSTR) + 1);
+		}
+		return Result.success(RESULT);
+	}
+
+
+	@GetMapping("/year/{dateSTR}")
+	public Result getmouthnum(@GetUserId Integer uid, @PathVariable("dateSTR") String dateSTR) {
+		HashMap<Integer, Integer> RESULT = new HashMap<>();
+
+		List<TimeEvent> TEList = TEService.getmouthnum(TableNameUtil.getTEName(uid), dateSTR);
+
+
+
+		for (TimeEvent te : TEList) {
+			int MouthValue = te.getStartTime().getMonthValue();
+			if (RESULT.get(MouthValue) == null) {
+				RESULT.put(MouthValue, 1);
+			} else
+				RESULT.replace(MouthValue, RESULT.get(MouthValue) + 1);
+		}
+		return Result.success(RESULT);
+	}
+
 
 	/**
 	 * 根据分类查事项
