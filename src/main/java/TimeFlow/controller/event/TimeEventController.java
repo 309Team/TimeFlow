@@ -46,7 +46,7 @@ public class TimeEventController {
 	@PostMapping()
 	public Result add(@GetUserId Integer uid, @RequestBody TimeEvent newTE) {
 		TEService.add(TableNameUtil.getTEName(uid), newTE);
-		return Result.success();
+		return Result.success(newTE);
 	}
 
 	@DeleteMapping("/{eid}")

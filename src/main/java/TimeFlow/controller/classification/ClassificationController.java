@@ -46,8 +46,4 @@ public class ClassificationController {
 		CService.update(TableNameUtil.getTECLName(uid), newCL);
 		return Result.success();
 	}
-
-
 }
-
-

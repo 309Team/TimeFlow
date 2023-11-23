@@ -28,7 +28,7 @@
           and EXTRACT(YEAR FROM startTime) = EXTRACT(YEAR FROM #{dateSTR})
     </select>
 
-    <insert id="add">
+    <insert id="add" useGeneratedKeys="true" keyProperty="newTE.id">
         INSERT INTO ${tableName}
         (name,startTime, overTime,
          setInViewPage, text, completed)
