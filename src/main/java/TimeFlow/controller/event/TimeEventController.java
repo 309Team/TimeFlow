@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Slf4j
 @RestController
@@ -109,13 +106,13 @@ public class TimeEventController {
 	 * @param map "cid":[] 分类id List
 	 * @return 事项列表
 	 */
-	@GetMapping("/class")
+	@PostMapping("/class")
 	Result listEventsOfClass(@GetUserId Integer uid, @RequestBody Map<String, List<Integer>> map) {
 		List<Integer> cid = map.get("cid");
 		// 获得符合的id
 		List<Integer> eventIds = classCategoryService.listEventsByClass(uid, cid);
 
 		// 从TE中获得事项
-		return Result.success(TEService.listByClass(uid, eventIds));
+		return eventIds.isEmpty() ? Result.success(new ArrayList<TimeEvent>()) : Result.success(TEService.listByClass(uid, eventIds));
 	}
 }

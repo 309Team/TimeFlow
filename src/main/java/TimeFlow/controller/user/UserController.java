@@ -22,7 +22,6 @@ public class UserController {
 
     /**
      * 用户注销方法
-     *
      * @param uid 从token解析的uid
      * @return 删除结果
      */

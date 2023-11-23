@@ -42,6 +42,7 @@
             #{item}
         </foreach>
     </select>
+
     <select id="findAllClassByEid" resultType="java.lang.Integer">
         SELECT id_class
         FROM ${tableName}
