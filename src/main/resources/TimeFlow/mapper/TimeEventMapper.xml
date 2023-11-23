@@ -30,10 +30,10 @@
 
     <insert id="add">
         INSERT INTO ${tableName}
-        (id,name,startTime, overTime,
+        (name,startTime, overTime,
          setInViewPage, text, completed)
         values
-            (#{newTE.id},#{newTE.name},#{newTE.startTime},#{newTE.overTime},
+            (#{newTE.name},#{newTE.startTime},#{newTE.overTime},
              #{newTE.setInViewPage}, #{newTE.text}, #{newTE.completed})
     </insert>
     <delete id="delete">

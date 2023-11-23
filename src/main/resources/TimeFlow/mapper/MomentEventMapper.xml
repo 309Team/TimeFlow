@@ -23,10 +23,10 @@
 
     <insert id="add">
         INSERT INTO ${tableName}
-            (id,name,deadline,
+            (name,deadline,
              setInViewPage, text, completed)
         values
-            (#{newME.id},#{newME.name},#{newME.deadline},
+            (#{newME.name},#{newME.deadline},
              #{newME.setInViewPage}, #{newME.text}, #{newME.completed})
     </insert>
 

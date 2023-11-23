@@ -18,9 +18,9 @@
         SELECT * FROM ${tableName}
     </select>
     <insert id="add">
-        INSERT INTO ${tableName} (id,name,text)
+        INSERT INTO ${tableName} (name,text)
         values
-            (#{newCL.id},#{newCL.name},#{newCL.text})
+            (#{newCL.name},#{newCL.text})
     </insert>
     <insert id="createTable">
         create table if not exists ${tableName}
