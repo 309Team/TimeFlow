@@ -109,7 +109,7 @@ public class TimeEventController {
 	 * @param map "cid":[] 分类id List
 	 * @return 事项列表
 	 */
-	@GetMapping("/class")
+	@PostMapping("/getclass")
 	Result listEventsOfClass(@GetUserId Integer uid, @RequestBody Map<String, List<Integer>> map) {
 		List<Integer> cid = map.get("cid");
 		// 获得符合的id

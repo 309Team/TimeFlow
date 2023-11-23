@@ -12,4 +12,7 @@ public interface ClassificationService {
     void add(String tableName, Classification newCL);
 
     void delete(Integer uid, Integer cid);
+
+	void update(String tableName, Classification newCL);
+
 }

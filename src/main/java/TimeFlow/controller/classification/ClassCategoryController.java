@@ -53,7 +53,6 @@ public class ClassCategoryController {
         return code == 0 ? Result.error("删除失败") : Result.success();
     }
 
-
 //-----------------------------------------------------------------------------------------------------
 
     @PostMapping("/event")

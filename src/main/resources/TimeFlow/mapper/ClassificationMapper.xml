@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="TimeFlow.mapper.classification.ClassificationMapper">
+    <update id="update">
+        UPDATE ${tableName}
+        <set>
+            <if test="newCL.name != null">
+                name = #{newCL.name},
+            </if>
+            <if test="newCL.text != null">
+                text = #{newCL.text},
+            </if>
+        </set>
+        WHERE id = #{newCL.id}
+    </update>
+
     <select id="list" resultType="TimeFlow.pojo.Classification">
         SELECT * FROM ${tableName}
     </select>
