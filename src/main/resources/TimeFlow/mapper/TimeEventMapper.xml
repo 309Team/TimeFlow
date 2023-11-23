@@ -14,18 +14,17 @@
             #{item}
         </foreach>
     </select>
-    <select id="getdaynum" resultType="TimeFlow.pojo.TimeEvent">
+    <select id="getDayNum" resultType="TimeFlow.pojo.TimeEvent">
         SELECT *
         FROM ${tableName}
-        WHERE 1 = 1
-          and EXTRACT(YEAR FROM startTime) = EXTRACT(YEAR FROM #{dateSTR})
-          and EXTRACT(MONTH FROM startTime) = EXTRACT(MONTH FROM #{dateSTR})
+        WHERE DATE_FORMAT(startTime, '%Y-%m') &lt;= DATE_FORMAT(STR_TO_DATE(#{dateSTR}, '%Y-%m-%d'), '%Y-%m')
+           OR DATE_FORMAT(overTime, '%Y-%m') >= DATE_FORMAT(STR_TO_DATE(#{dateSTR}, '%Y-%m-%d'), '%Y-%m');
     </select>
-    <select id="getmouthnum" resultType="TimeFlow.pojo.TimeEvent">
+    <select id="getMonthNum" resultType="TimeFlow.pojo.TimeEvent">
         SELECT *
         FROM ${tableName}
-        WHERE 1 = 1
-          and EXTRACT(YEAR FROM startTime) = EXTRACT(YEAR FROM #{dateSTR})
+        WHERE DATE_FORMAT(startTime, '%Y') &lt;= DATE_FORMAT(STR_TO_DATE(#{dateSTR}, '%Y-%m-%d'), '%Y')
+           OR DATE_FORMAT(overTime, '%Y') >= DATE_FORMAT(STR_TO_DATE(#{dateSTR}, '%Y-%m-%d'), '%Y');
     </select>
 
     <insert id="add" useGeneratedKeys="true" keyProperty="newTE.id">

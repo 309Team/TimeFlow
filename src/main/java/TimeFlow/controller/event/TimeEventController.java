@@ -8,11 +8,8 @@ import TimeFlow.service.interf.classification.ClassCategoryService;
 import TimeFlow.service.interf.event.TimeEventService;
 import TimeFlow.util.TableNameUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Slf4j
@@ -63,40 +60,14 @@ public class TimeEventController {
 	}
 
 	@GetMapping("/month/{dateSTR}")
-	public Result getdaynum(@GetUserId Integer uid, @PathVariable("dateSTR") String dateSTR) {
-		HashMap<String, Integer> RESULT = new HashMap<>();
-
-		List<TimeEvent> TEList = TEService.getdaynum(TableNameUtil.getTEName(uid), dateSTR);
-
-		for (TimeEvent te : TEList) {
-			String MouthSTR = te.getStartTime().getYear() + "-" +
-					te.getStartTime().getMonthValue() + "-" +
-					te.getStartTime().getDayOfMonth();
-			if (RESULT.get(MouthSTR) == null) {
-				RESULT.put(MouthSTR, 1);
-			} else
-				RESULT.replace(MouthSTR, RESULT.get(MouthSTR) + 1);
-		}
-		return Result.success(RESULT);
+	public Result getDayNum(@GetUserId Integer uid, @PathVariable("dateSTR") String dateSTR) {
+		return Result.success(TEService.getDayNum(TableNameUtil.getTEName(uid), dateSTR));
 	}
 
 
 	@GetMapping("/year/{dateSTR}")
 	public Result getmouthnum(@GetUserId Integer uid, @PathVariable("dateSTR") String dateSTR) {
-		HashMap<String, Integer> RESULT = new HashMap<>();
-
-		List<TimeEvent> TEList = TEService.getmouthnum(TableNameUtil.getTEName(uid), dateSTR);
-
-
-
-		for (TimeEvent te : TEList) {
-			String MonthValue = String.valueOf(te.getStartTime().getMonthValue());
-			if (RESULT.get(MonthValue) == null) {
-				RESULT.put(MonthValue, 1);
-			} else
-				RESULT.replace(MonthValue, RESULT.get(MonthValue) + 1);
-		}
-		return Result.success(RESULT);
+		return Result.success(TEService.getMonthNum(TableNameUtil.getTEName(uid), dateSTR));
 	}
 
 
