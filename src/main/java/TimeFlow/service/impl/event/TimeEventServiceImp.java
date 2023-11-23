@@ -25,7 +25,7 @@ public class TimeEventServiceImp implements TimeEventService {
 
 	@Override
     public List<TimeEvent> list(String tableName, String dateSTR) {
-        return TEMapper.list(tableName, dateSTR);
+        return TEMapper.list(tableName, dateSTR + " 23:59:59");
 	}
 
 	@Override
@@ -52,12 +52,12 @@ public class TimeEventServiceImp implements TimeEventService {
 
 	@Override
 	public List<TimeEvent> getdaynum(String tableName, String dateSTR) {
-		return TEMapper.getdaynum(tableName, dateSTR);
+		return TEMapper.getdaynum(tableName, dateSTR+ " 23:59:59");
 	}
 
 	@Override
 	public List<TimeEvent> getmouthnum(String tableName, String dateSTR) {
-		return TEMapper.getmouthnum(tableName, dateSTR);
+		return TEMapper.getmouthnum(tableName, dateSTR+ " 23:59:59");
 	}
 
 }
