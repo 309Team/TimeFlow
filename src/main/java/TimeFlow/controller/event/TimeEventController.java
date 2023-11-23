@@ -52,6 +52,7 @@ public class TimeEventController {
 	@DeleteMapping("/{eid}")
 	public Result delete(@GetUserId Integer uid, @PathVariable Integer eid) {
 		TEService.delete(uid, eid);
+
 		return Result.success();
 	}
 

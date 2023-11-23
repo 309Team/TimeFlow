@@ -6,7 +6,7 @@
         FROM ${tableName}
         WHERE 1 = 1
           and #{date} >= startTime
-          and overTime >= #{date}
+          and date_add(overTime, INTERVAL 1 day) >= #{date}
     </select>
     <select id="listById" resultType="TimeFlow.pojo.TimeEvent">
         SELECT * FROM ${tableName} WHERE id IN
