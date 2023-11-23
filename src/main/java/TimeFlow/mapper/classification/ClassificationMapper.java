@@ -18,4 +18,7 @@ public interface ClassificationMapper {
 	void add(String tableName, Classification newCL);
 
 	void delete(String tableName, Integer id);
+
+	void update(String tableName, Classification newCL);
+
 }

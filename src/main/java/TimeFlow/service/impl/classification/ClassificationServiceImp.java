@@ -41,4 +41,9 @@ public class ClassificationServiceImp implements ClassificationService {
 		// 把中间表的关系删除
 		classCategoryMapper.deleteByClassId(TableNameUtil.getMidTabName(uid), cid);
 	}
+
+	@Override
+	public void update(String tableName, Classification newCL) {
+		CMapper.update(tableName, newCL);
+	}
 }
