@@ -8,11 +8,11 @@
         <version>3.1.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>example</groupId>
+    <groupId>TimeFlow</groupId>
     <artifactId>TimeFlow</artifactId>
-    <version>0.1</version>
-    <name>demo</name>
-    <description>demo</description>
+    <version>1.0</version>
+    <name>TimeFlow</name>
+    <description>TimeFlow</description>
     <properties>
         <java.version>17</java.version>
     </properties>
