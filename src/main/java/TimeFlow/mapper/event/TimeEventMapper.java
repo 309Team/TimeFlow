@@ -24,4 +24,6 @@ public interface TimeEventMapper {
 	List<TimeEvent> getMonthNum(String tableName, String dateSTR);
 
 
+	List<TimeEvent> getday(String tableName, String dateSTR);
+
 }

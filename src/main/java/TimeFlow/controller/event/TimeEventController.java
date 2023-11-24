@@ -27,6 +27,17 @@ public class TimeEventController {
 		this.classCategoryService = classCategoryService;
 	}
 
+	@GetMapping("/getday/{dateSTR}")
+	public Result getday(@GetUserId Integer uid, @PathVariable("dateSTR") String dateSTR) {
+		List<TimeEvent> TEList = TEService.getday(TableNameUtil.getTEName(uid), dateSTR);
+		TEList.sort(new Comparator<TimeEvent>() {
+			@Override
+			public int compare(TimeEvent o1, TimeEvent o2) {
+				return o1.getStartTime().compareTo(o2.getStartTime());
+			}
+		});
+		return Result.success(TEList);
+	}
 
 	@GetMapping("/{dateSTR}")
 	public Result list(@GetUserId Integer uid, @PathVariable("dateSTR") String dateSTR) {

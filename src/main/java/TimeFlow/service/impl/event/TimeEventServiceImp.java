@@ -116,4 +116,9 @@ public class TimeEventServiceImp implements TimeEventService {
 		return result;
 	}
 
+	@Override
+	public List<TimeEvent> getday(String tableName, String dateSTR) {
+		return TEMapper.getday(tableName, dateSTR);
+	}
+
 }

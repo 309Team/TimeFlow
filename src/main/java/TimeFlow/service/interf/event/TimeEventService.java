@@ -22,4 +22,6 @@ public interface TimeEventService {
 
     HashMap<String, Integer> getMonthNum(String teName, String dateSTR);
 
+    List<TimeEvent> getday(String tableName, String dateSTR);
+
 }
